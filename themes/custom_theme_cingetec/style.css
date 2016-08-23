@@ -1,0 +1,63 @@
+/*
+Theme Name: Cingetec Ingeniería y Tecnología Website
+Theme URI: 
+Author: IngenioArt - JDarkgreen
+Author URI: 
+Description: TUn página web hecha en Wordpress
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: 
+Text Domain: 
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/**
+ * CARPETA VENDOR O PLUGINS DE TERCEROS
+ *
+**/
+
+/* font awesome */
+@import url("assets/styles/vendor/font-awesome/css/font-awesome.min.css");
+
+/*bootstrap*/
+@import url("assets/styles/vendor/bootstrap.min.css"); 
+
+/* owl carousel */
+@import url("assets/styles/vendor/owl.carousel.css"); 
+
+/* fancybox */
+@import url("assets/styles/vendor/fancybox/jquery.fancybox.css");
+
+/* prettyphoto */
+@import url("assets/styles/vendor/prettyphoto/css/prettyPhoto.css"); 
+
+/* parsley */
+@import url("assets/styles/vendor/parsley.css"); 
+
+/* rev slider */
+@import url("assets/styles/vendor/revslider/revslider.css"); 
+
+/* flex slider */
+/*@import url("assets/styles/vendor/flexslider/flexslider.css");*/ 
+
+/* slidebars */
+/*@import url("assets/styles/vendor/slidebars.min.css");*/
+
+/* mmenu */
+/*@import url("assets/styles/vendor/mmenu/jquery.mmenu.all.css");
+@import url("assets/styles/vendor/mmenu/jquery.mmenu.positioning.css");
+@import url("assets/styles/vendor/mmenu/jquery.mmenu.searchfield.css");*/
+
+/* slick carousel */
+@import url("assets/styles/vendor/slick/slick.css"); 
+
+/**
+ * CARPETA COMPILADO ARCHIVOS PROPIOS 
+ *
+**/
+
+/* archivo master */
+@import url("assets/styles/build/master.css");

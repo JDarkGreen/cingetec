@@ -1,0 +1,96 @@
+/*----------------------------------------------------------------------------------*/
+/*--------------------- ARCHIVO FOOTER DE PÁGINA ----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+//SECCIÓN
+.mainFooter
+	color  : white
+	margin : 30px auto 0
+
+/** [ SECCIÓN DE CONTENIDO ] **/
+#mainFooter-section-content
+	background     : url("../../images/backgrounds/footer_cingetec_ingenieria_tecnologia_construccion_fondo.jpg") no-repeat
+	background-size: cover 
+	padding        : 30px 0
+
+//
+.mainFooter__content
+	display: table 
+	width  : 100% 
+
+
+/* Item de Footer contiene informaciones */
+.mainFooter__item
+	border-right: 1px solid white 
+	display     : table-cell 
+	height      : auto 
+	padding     : 0 44px 
+	width       : 33%
+
+	//Titulos
+	h3.title
+		border-left: 4px solid #A3CA38
+		display    : inline-block
+		font-size  : 18px
+		font-weight: bold	
+		line-height: 1em  
+		margin     : 0 auto 17px
+		padding    : 0 0 0 15px 
+
+
+/* Lista de Datos */
+ul.mainFooter__list-data
+	list-style-type: none 
+	margin         : 0 
+	padding        : 0 0 0 40px
+	li 
+		font-size: 15px
+		margin   : 0 auto 8px
+		//Div inline 
+		.container-inline 
+			display: inline-block
+		i	
+			color         : white  
+			display       : inline-block
+			font-size     : 20px
+			height        : 20px
+			margin        : 0 15px 0 -39px
+			text-align    : center 
+			vertical-align: top
+			width         : 20px 
+
+/* Redes Sociales */
+ul.mainFooter__social-data
+	list-style-type: none
+	margin         : 23px 0 
+	padding        : 0 
+	li 
+		display: inline-block
+		padding: 0 7px 
+		a 
+			color          : white 
+			display        : block
+			font-size      : 25px  
+			text-decoration: none
+			//Hover
+			&:hover 
+				+animation( expand 1.2s ease-in-out infinite )
+
+//Variacion texto destacado
+.text-featured
+	color: #A3CA38
+
+/** Copyright **/
+.text-copyright
+	font-size : 12px
+	font-style: italic
+	margin    : 10px auto
+
+//++Seccion de Desarrollo
+.mainFooter__develop
+	background: #1a1a1a
+	font-size : 12px 
+	padding   : 5px 0
+	/* Link */
+	a 
+		color: white

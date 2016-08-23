@@ -1,0 +1,690 @@
+/** Importar Compass **/
+@import "compass/css3"
+
+
+/** Importar Fuentes **/
+
+//Roboto
+@import 'https://fonts.googleapis.com/css?family=Roboto'
+
+//Shelley
+@font-face
+	font-family: 'Shelley' 
+	src: url('../../fonts/shelley/shelley.otf')
+	src: url('../../fonts/shelley/shelley.eot?#iefix') format('embedded-opentype'), url('../../fonts/shelley/shelley.woff2') format('woff2'), url('../../fonts/shelley/shelley.woff') format('woff'), url('../../fonts/shelley/shelley.ttf')  format('truetype'), url('../../fonts/shelley/shelley.svg#svgFontName') format('svg')
+
+//Helvetica Heavy condensed
+@font-face
+	font-family: 'Helvetica-Heavy' 
+	src: url('../../fonts/helvetica-condensed/helvetica-condensed.otf')
+	src: url('../../fonts/helvetica-condensed/helvetica-condensed.eot?#iefix') format('embedded-opentype'), url('../../fonts/helvetica-condensed/helvetica-condensed.woff2') format('woff2'), url('../../fonts/helvetica-condensed/helvetica-condensed.woff') format('woff'), url('../../fonts/helvetica-condensed/helvetica-condensed.ttf')  format('truetype'), url('../../fonts/helvetica-condensed/helvetica-condensed.svg#svgFontName') format('svg')
+
+//Helvetica Heavy condensed Light
+@font-face
+	font-family: 'Helvetica-Light' 
+	src: url('../../fonts/helvetica-light/helvetica-light.ttf')
+	src: url('../../fonts/helvetica-light/helvetica-light.eot?#iefix') format('embedded-opentype'), url('../../fonts/helvetica-light/helvetica-light.woff2') format('woff2'), url('../../fonts/helvetica-light/helvetica-light.woff') format('woff'), url('../../fonts/helvetica-light/helvetica-light.ttf')  format('truetype'), url('../../fonts/helvetica-light/helvetica-light.svg#svgFontName') format('svg')
+
+//Impact
+@font-face
+	font-family: 'Impact' 
+	src: url('../../fonts/impact/Impact.ttf')
+	src: url('../../fonts/impact/Impact.eot?#iefix') format('embedded-opentype'), url('../../fonts/impact/Impact.woff2') format('woff2'), url('../../fonts/impact/Impact.woff') format('woff'), url('../../fonts/impact/Impact.ttf')  format('truetype'), url('../../fonts/impact/Impact.svg#svgFontName') format('svg')
+
+
+/** Importar Archivo variables Colores **/
+@import "colors"
+
+
+/***************************************************************************************/
+/**-------------------------- RESET --------------------------------------------------**/
+/***************************************************************************************/
+
+body,html
+	font-family: "Arial" , sans-serif
+	font-size  : 16px
+	width      : 100% 
+
+/** BARRA ACTIVA **/
+body.admin-bar
+	margin: 0
+
+/***************************************************************************************/
+/**------------------------ Overwhite Placeholder  -----------------------------------**/
+/***************************************************************************************/
+
+::-webkit-input-placeholder
+	color: rgba( 0 , 0 , 0 , .5 )
+
+::-moz-placeholder 
+	color  : rgba( 0 , 0 , 0 , .5 )
+	opacity: 1
+
+/***************************************************************************************/
+/**-------------------------- KEYFRAMES  ---------------------------------------------**/
+/***************************************************************************************/
+
+//PULSE
++keyframes( pulse )
+	0%, 100%
+		+translateX( -5px )
+	50%
+		+translateX( 0 )
+
+//EXPAND
++keyframes( expand )
+	0%, 100%
+		+scale( 1.1 )
+	50%
+		+scale( 1.0 )
+
+//CONTRACT
++keyframes( contract )
+	0%
+		+scale( 0 )
+	100%
+		+scale( 1 )
+
+//FLIPIN 
++keyframes( flipInY )
+	0%	
+		+rotateY( -90deg )
+		+opacity( 0 )
+	100%
+		+rotateY( 0deg )
+		+opacity( 1 )
+
+//OPACITY 
++keyframes( opacityInOut )
+	0%
+		+opacity( 0 )
+	100%
+		+opacity( 1 )
+
+//OVERLAYZOOM
++keyframes( overlayZoom )
+	0%
+		background-size: 100% 100%
+	100%
+		background-size: 140% 140%
+
+//HEARTHBEAT
++keyframes( heartbeat )
+	0% , 40% 
+		+scale( .75 )
+	20% , 60% , 100%
+		+scale( 1 )
+
+
+/***************************************************************************************/
+/**-------------------------- ANIMACIONES CON CLASES ----------------------------------**/
+/***************************************************************************************/
+
+//clase contract
+.contract 
+	+animation( contract 1200ms cubic-bezier( .5 , .5 , .5 , 1.5 ) ) 
+//clase contract
+.flipInY 
+	+animation( flipInY 9s cubic-bezier( 0 , 1 , 1 , 1 ) 1200ms ) 
+//clase overlayZoom
+.overlayZoom
+	+animation( overlayZoom 10s ease-in ) 
+//clase overlayZoom
+.overlayZoomAlternate
+	+animation( overlayZoom 10s ease-in reverse ) 
+
+/***************************************************************************************/
+/**--  SECCIONES COMUNES Y WRAPPER GENERAL -------------------------------------------**/
+/***************************************************************************************/
+
+/** [ Importar Archivo Secciones Comunes ] **/
+@import "_common.sass"
+
+//Contenedor Contenido de Páginas
+.pageContentLayout
+	padding: 88px 0 0
+
+//Contenedor Layout 
+.pageWrapperLayout
+	margin   : 0 auto 
+	max-width: 1180px
+	width    : 100%
+
+/***************************************************************************************/
+/**--  HEADER   ----------------------------------------------------------------------**/
+/***************************************************************************************/
+
+@import "_header.sass"
+
+
+/***************************************************************************************/
+/**--  PAGINA INICIO  ----------------------------------------------------------------**/
+/***************************************************************************************/
+
+//Slider De Página
+.pageInicio__slider
+	border     : 0
+	font-family: "Arial",sans-serif
+	//Menu lista por default
+	ul 
+		list-style-type: none
+		padding        : 0
+
+//Slider de Página Revolution Slider
+
+/** [ Imagen Extra de Carousel ] **/
+.item-slider__extra-img
+	max-width: 580px
+	width    : 100%
+
+/* [ Contenido o caption de carousel ] */
+.pageInicio__slider__content
+	font-family: "Helvetica-Heavy", sans-serif
+	white-space: normal
+	width      : 540px
+	word-break : keep-all
+	// Título 
+	h2 
+		font-size  : 94px
+		font-weight: 700
+		line-height: 1.4em
+
+//Contenedor de meta contenido
+.pageInicio__slider__meta-content
+	color  : white 
+	padding: 0 0 0 70px
+	//Párrafos o contenido del texto
+	p 
+		font-size  : 35px 
+		font-weight: 700
+		line-height: 1em 
+		margin     : 0 auto 22px 
+	//extracto del slider
+	span 
+		display    : block 
+		font-family: "Raleway", sans-serif
+		font-size  : 20px 
+		font-style : italic 
+		font-weight: 600
+		max-width  : 255px
+
+/** [ Flechas de Carousel ] **/
+.pageInicio__slider__arrows
+	a 
+		color          : white 
+		font-size      : 70px 
+		line-height    : 1em 
+		margin         : -35px 0 auto 
+		position       : absolute
+		text-decoration: none
+		top            : 50%
+		z-index        : 999
+		//variacion izquierda y derecha 
+		&.arrow-prev
+			left: 5% 
+		&.arrow-next 
+			right: 5% 
+
+/** [ Indicadores o dots de Slider ] **/
+.pageInicio__slider__dots
+	bottom  : 10px 
+	left    : 0
+	position: absolute
+	right   : 0
+	z-index : 99
+	//Link a 
+	a 
+		+border-radius( 50% )
+		+transition( all 500ms ease )
+		background: white 
+		display   : inline-block
+		height    : 14px 
+		margin    : 0 4px 
+		width     : 14px 
+
+/** [ SECCIÓN LINEAS DE NEGOCIO ] **/
+.pageInicio__section-bussiness
+	padding : 44px 0
+	//Item o artículos
+	.itemBussinessLine__preview
+		a 
+			margin  : 0 auto 15px 
+			overflow: hidden
+		//Imáge
+		img.imageItem
+			+transition( all 900ms ease-in-out )
+		//ícono
+		i 
+			bottom  : -1px
+			left    : 0
+			position: absolute
+			width   : 50px
+		//Title
+		h3 
+			font-size  : 17px 
+			font-weight: 700 
+			line-height: 1em 
+			margin     : 0 
+		//Hover Item
+		&:hover 
+			img.imageItem
+				+scale( 1.2 )
+
+/** [ PRESENTACIÓN INICIO ] **/
+.pageInicio__presentation
+	background: #F0F0F0
+	padding   : 50px 0
+
+//Variación presentation
+.pageInicio__presentation--white
+	background: white 
+	//Clase interna
+	.pageWrapperLayout
+		border-bottom: 1px solid #BFBFBF
+		padding      : 0 0 50px 
+
+/** [ SECCIÓN DE PROYECTOS ] **/
+.pageInicio__proyectos
+	background           : url("../../images/backgrounds/proyectos_cingetec_ingenieria_tecnologia_construccion_fondo.jpg")
+	background-attachment: fixed
+	background-size      : cover 
+	padding              : 50px 0 
+
+	//Texto de Presentación
+	.text-presentation
+		color    : white 
+		font-size: 16px
+		padding  : 0 20% 0 6% 
+
+//Item Preview de Proyectos
+.itemProyecto__preview
+	background: white
+	height    : 396px 
+	//Imagen
+	figure 
+		background-size: cover
+		height         : 162px  
+	//Título 
+	h3 
+		font-size  : 15px 
+		font-weight: 700 
+		margin     : 0 
+		max-height : 68px 
+		overflow   : hidden
+	//Párrafos 
+	p 
+		font-size  : 14px 
+		line-height: 1.3em 
+		margin     : 0 auto 
+	//Contenedor de texto
+	.content-text
+		padding: 30px 29px
+
+	//Sobreescribir botón ver más y hacerlo posicion absoluta
+	a.btnCommon__show-more
+		bottom  : 22px
+		position: absolute
+
+//Flechas de Carousel Proyectos
+.arrowCarouselProyectos
+	color          : white 
+	font-size      : 50px 
+	line-height    : 1 
+	margin         : -25px auto 0
+	position       : absolute
+	top            : 50% 
+	//Hover 
+	&:hover 
+		color          : white 
+		text-decoration: none 
+		//ÍCONO
+		i 
+			+animation( pulse .8s ease-in-out infinite )
+	//Variaciones 
+	&.arrowCarouselProyectos--prev 
+		left: -4% 
+	&.arrowCarouselProyectos--next
+		right: -4%
+
+/**  [ SECCION BLOG ] **/
+
+//Item preview del blog 
+.itemArticle__preview
+	background: #F4F1F2
+	margin    : 0 auto 20px 
+	padding   : 20px 19px 
+	//Imágen
+	figure 
+		display : inline-block
+		margin  : 0 33px 0 0 
+		overflow: hidden
+		//Link or image
+		a 
+			background-size: 100%
+			display        : block
+			height         : 120px
+			width          : 169px
+			+transition( all 2s ease-in-out )
+
+	//Container Text 
+	.content-text
+		display       : inline-block
+		vertical-align: top
+		width         : 70%
+	
+	//Titulo
+	h3 
+		font-size  : 16px 
+		font-weight: 600 
+		line-height: 1 
+		margin     : 0 auto 20px
+	//Párrafo
+	p 
+		font-size  : 14px 
+		line-height: 1.3 
+		margin     : 0
+	//Link to post 
+	a.linktoPost
+		color          : #006FB8
+		font-weight    : 600 
+		text-decoration: none 
+
+	//Hover Article
+	&:hover 
+		figure 
+			a 
+				background-size: 200px
+
+/** [ SECCIÓN MISCELANEO ] **/
+.pageInicio__miscelaneo
+	border-bottom: 1px solid #BFBFBF
+
+
+/***************************************************************************************/
+/**--  PAGINA NOSOTROS  --------------------------------------------------------------**/
+/***************************************************************************************/
+
+/** [ ITEM DE NOSOTROS ] **/
+.pageNosotros__item
+	width: 48%
+
+/** [ CONTENIDO ] **/
+.pageNosotros__content
+	margin: 0 0 100px
+
+/** [ ITEM DE APTITUP ] **/
+.pageNosotros__aptitud
+	margin  : 52px auto 0 
+	overflow: hidden
+	//Título 
+	h2 
+		font-family: "Helvetica-Light"
+		font-size  : 25px
+		font-weight: 700 
+	//Párrafo
+	p 
+		font-size: 14px
+	
+
+
+/***************************************************************************************/
+/**--  PÁGINA PRODUCTOS --------------------------------------------------------------**/
+/***************************************************************************************/
+
+//Preview de Producto Página comun
+.itemProducto__preview
+	margin: 0 auto 49px
+	//link 
+	a 
+		text-decoration: none
+	//image 
+	figure 
+		overflow: hidden
+		img 
+			+transition( all 900ms ease-in )
+	//titulo
+	h3
+		font-size  : 15px  
+		height     : 24px 
+		line-height: 1em 
+		margin     : 0 auto 14px
+	//Hover 
+	&:hover  
+		//Image 
+		img 
+			+scale( 1.2 )
+
+//Preview de Producto Categoría Productos
+.productoItemPreview
+	background: white 
+	border    : 1px solid #A8A8A8
+	margin    : 0 auto 38px
+	padding   : 41px 24px
+
+	/* Títulos */
+	h3 , h4
+		font-family: "Impact"
+		font-size  : 24px 
+		line-height: 1em
+		margin     : 5px auto
+	h4 
+		font-size: 20px
+
+//Detalles de Producto
+.productoItemDetails
+	background: white 
+	border    : 1px solid #A8A8A8
+	margin    : 0 auto 38px
+	padding   : 41px 24px
+
+	//Título de Producto
+	.productTitle 
+		font-family: "Impact"
+		font-size  : 25px 
+
+	//Código de Producto
+	.productCode
+		font-family: "Impact"
+		font-size  : 23px
+
+	//Item detalle de Producto
+	.detailItemProduct
+		margin: 0 auto 25px
+		h3 
+			color      : black 
+			font-family: "Helvetica-Light"
+			font-size  : 24px 
+			font-weight: 700 
+			margin     : 0 auto 18px
+		p 
+			font-size: 15px
+		//Item Color
+		.item-color
+			padding: 0 0 0 25px 
+			//Icon
+			i 
+				+border-radius( 50% )
+				display       : inline-block
+				height        : 15px 
+				margin        : 0 4px 0 -25px
+				vertical-align: middle
+				width         : 15px
+			//span 
+			span 
+				color         : black 
+				display       : inline-block
+				font-size     : 15px
+				line-height   : 1.25em 
+				vertical-align: text-top
+
+
+/**[ Sección Thumbnails de Producto ]**/
+.productoItemDetails__thumbnails
+	figure 
+		margin: 0
+
+
+
+/***************************************************************************************/
+/**--  PAGINA BLOG  ----------------------------------------------------------------**/
+/***************************************************************************************/
+
+/** [ PREVIEW DE BLOG ] **/
+.articleBlog__preview
+	margin: 0 auto 10px
+	//Imagen
+	figure 
+		overflow: hidden
+		img 
+			+transition( all 500ms ease )
+			height    : auto 
+			margin    : 0 auto 
+			max-height: 106px 
+			max-width : 189px 
+			width     : 100%
+	//Titulo
+	h2
+		align-items    : center
+		color          : green
+		display        : flex
+		font-size      : 15px
+		font-weight    : 600
+		height         : 50px
+		justify-content: center
+		margin         : 0
+	//Hover Preview
+	&:hover 
+		img 
+			+opacity( 0.7 )
+
+/* Articulo de blog */
+.articleBlog
+	img 
+		height   : auto 
+		margin   : 0 auto 
+		max-width: 100%
+		width    : 100%
+
+/***************************************************************************************/
+/**--  PAGINA GALERÍA ----------------------------------------------------------------**/
+/***************************************************************************************/
+
+//SECCION GENERAL GALERÍA
+.pageGallery__section
+	// ARTICLE - ITEM DE GALERÍA
+	.item-gallery
+		margin: 0 auto 45px
+
+		//IFRAME PARA LOS VIDEOS
+		iframe 
+			height: 300px
+			width : 100%
+		//Hover article
+		&:hover 
+			.container-hover 
+				+opacity( 1 )
+	
+	//Contenido de texto 
+	.item-gallery-content
+		height  : 43px
+		overflow: hidden
+
+	//CONTENEDOR HOVER 
+	.container-hover 
+		+opacity( 0 )
+		+transition( all 500ms ease-in )
+		background : rgba( 0 , 152 , 0, .6 )
+		bottom     : 0
+		color      : white
+		font-size  : 25px 
+		font-weight: 600 
+		left       : 0
+		position   : absolute
+		right      : 0
+		top        : 0 
+		//Icon 
+		i 
+			+border-radius( 50% )
+			border : 4px solid rgba(255,255,255,0.25)
+			color  : rgba(255,255,255,0.25)
+			display: flex
+			height : 40px	
+			margin : 0 auto
+			margin : 0 auto 15px 
+			width  : 40px
+
+
+/***************************************************************************************/
+/**--  PÁGINA CONTACTO ---------------------------------------------------------------**/
+/***************************************************************************************/
+
+/** INFORMACIÓN DE CONTACTO **/
+.pageContacto__info	
+	background : rgba(255,255,255,.9)
+	box-shadow : 1px 2px 8px #666
+	left       : 15px
+	overflow   : hidden
+	padding    : 10px
+	position   : absolute
+	top        : 15px
+	width      : 300px
+	z-index    : 1000
+	white-space: pre-line
+	//Estilos internos
+	pre 
+		white-space: pre-line
+	pre , span , p 
+		font-size  : 12px
+		font-family: "Arial", sans-serif !important
+
+
+/* Sección Formulario de Contacto */
+.pageContacto__formulary
+	background   : rgba(255,255,255,0.7)
+	box-shadow   : 1px 2px 8px #666
+	min-height   : 400px
+	overflow     : hidden
+	padding      : 10px
+	position     : absolute
+	right        : 10px
+	top          : 10px
+	width        : 280px
+	z-index      : 1000
+	//Título de sección
+	h2 
+		font-size  : 19px 
+		font-weight: 600 
+		margin     : 16px auto
+	//Fommulario dentro de sección
+	form 
+		//inputs y textarea 
+		.text-form, .text_area	
+			border   : #e6e6e6 2px solid
+			color    : #333
+			font-size: 13px 
+			margin   : 0 2px 10px 0
+			outline  : none
+			padding  : 9px 5px
+			width    : 95%
+
+//SECCIÓN DE MAPA [ Común y protegido ]
+#canvas-map
+	height: 540px 
+	width : 100%
+
+
+/***************************************************************************************/
+/**--  MAIN FOOTER  ------------------------------------------------------------------**/
+/***************************************************************************************/
+
+@import "_footer.sass"
+
+
+/************************************************************************************/
+/*-- MEDIA QUERIES -----------------------------------------------------------------*/
+/************************************************************************************/
+
+
+//MENOR A 640PX 
+//@media ( max-width: 640px )
+
