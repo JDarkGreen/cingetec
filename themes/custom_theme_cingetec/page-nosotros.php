@@ -29,27 +29,76 @@
 		<!-- Contenedor Flexible -->
 		<div class="containerFlex containerSpaceBetween">
 			
-				<!-- 1.- Item Visión -->
-				<div class="pageNosotros__aptitud">
-					<!-- Titulo --> <h2 class="text-uppercase"><?= __( "visión" , LANG ); ?></h2>
-					<!-- Contenido -->
+			<!-- 1.- Item Misión -->
+			<div class="pageNosotros__aptitud">
+				<!-- Titulo --> <h2 class="text-capitalize"><?= __( "misión" , LANG ); ?></h2>
+				
+				<!-- Imágen -->
+				<figure>
 					<?php 
-						if( isset($options["theme_vision"]) && !empty($options["theme_vision"]) ) :
-							echo apply_filters( "the_content" , $options["theme_vision"] );
-						endif; 
-					?>
-				</div> <!-- /. -->
+						if( isset($options["theme_mision"]['image']) && !empty($options["theme_mision"]['image']) ) : ?>
 
-				<!-- 2.- Item Misión -->
-				<div class="pageNosotros__aptitud">
-					<!-- Titulo --> <h2 class="text-uppercase"><?= __( "misión" , LANG ); ?></h2>
-					<!-- Contenido -->
+						<img src="<?= $options["theme_mision"]['image']; ?>" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+					
+					<?php else: ?>
+
+						<img src="https://unsplash.it/480/307" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+
+					<?php endif; ?>
+				</figure>
+				
+				<!-- Contenido -->
+				<?= isset($options["theme_mision"]['text']) && !empty($options["theme_mision"]['text']) ? apply_filters( "the_content" , $options["theme_mision"]['text'] ) : ""; ?>
+
+			</div> <!-- /. -->		
+
+			<!-- 2.- Item Visión -->
+			<div class="pageNosotros__aptitud">
+				<!-- Titulo --> <h2 class="text-capitalize"><?= __( "visión" , LANG ); ?></h2>
+				
+				<!-- Imágen -->
+				<figure>
 					<?php 
-						if( isset($options["theme_mision"]) && !empty($options["theme_mision"]) ) :
-							echo apply_filters( "the_content" , $options["theme_mision"] );
-						endif; 
-					?>
-				</div> <!-- /. -->
+						if( isset($options["theme_vision"]['image']) && !empty($options["theme_vision"]['image']) ) : ?>
+
+						<img src="<?= $options["theme_vision"]['image']; ?>" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+					
+					<?php else: ?>
+
+						<img src="https://unsplash.it/480/307" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+
+					<?php endif; ?>
+				</figure>
+				
+				<!-- Contenido -->
+				<?= isset($options["theme_vision"]['text']) && !empty($options["theme_vision"]['text']) ? apply_filters( "the_content" , $options["theme_vision"]['text'] ) : ""; ?>
+
+			</div> <!-- /. -->		
+
+			<!-- 3.- Item Estructura Organizacional -->
+			<div class="pageNosotros__aptitud">
+				<!-- Titulo --> <h2 class="text-capitalize">
+				<?= __( "estructura" , LANG ); ?> <br> <?= __( "organizacional" , LANG ); ?>
+				</h2>
+				
+				<!-- Imágen -->
+				<figure>
+					<?php 
+						if( isset($options["theme_organizational_structure"]['image']) && !empty($options["theme_organizational_structure"]['image']) ) : ?>
+
+						<img src="<?= $options["theme_organizational_structure"]['image']; ?>" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+					
+					<?php else: ?>
+
+						<img src="https://unsplash.it/480/307" alt="vision-cingetec" class="img-fluid d-block m-x-auto" />
+
+					<?php endif; ?>
+				</figure>
+				
+				<!-- Contenido -->
+				<?= isset($options["theme_organizational_structure"]['text']) && !empty($options["theme_organizational_structure"]['text']) ? apply_filters( "the_content" , $options["theme_organizational_structure"]['text'] ) : ""; ?>
+
+			</div> <!-- /. -->
 
 
 		</div> <!-- /.containerFlex containerSpaceBetween -->

@@ -22,7 +22,7 @@
 		*/
 	?>
 
-	<div id="carousel-theme-clients" class="section__single_gallery js-carousel-gallery" data-items="5" data-items-responsive="1" data-margins="165" data-dots="false" data-autoplay="true">
+	<div id="carousel-theme-clients" class="section__single_gallery js-carousel-gallery" data-items="6" data-items-responsive="1" data-margins="115" data-dots="false" data-autoplay="true">
 
 	<?php  
 		#Extraer todos los clientes
