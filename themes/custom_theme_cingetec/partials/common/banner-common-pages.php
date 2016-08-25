@@ -14,13 +14,13 @@
 
 				#Si está vacio o tiene un número negativo entonces seteamos imágen al azar
 				if( empty($img_banner) || $img_banner == -1  ) :
-					$img_banner = "https://placeimg.com/1920/237/any";
+					$img_banner = "https://unsplash.it/1920/237";
 				endif; 
 
 			#Si existe el objeto banner object
 			elseif( isset($banner_object) ) :
 				
-				$img_banner = !empty($banner_object) ? $banner_object : "https://placeimg.com/1920/237/any";
+				$img_banner = !empty($banner_object) ? $banner_object : "https://unsplash.it/1920/237";
 
 			endif;
 

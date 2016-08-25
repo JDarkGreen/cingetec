@@ -308,8 +308,9 @@ body.admin-bar
 	height    : 396px 
 	//Imagen
 	figure 
-		background-size: cover
-		height         : 162px  
+		background-size: 100%
+		height         : 162px 
+		+transition( all 4s ease-in-out ) 
 	//Título 
 	h3 
 		font-size  : 15px 
@@ -498,14 +499,143 @@ body.admin-bar
 	display: table 
 	width  : 100%
 
-//Sidebar
-aside.sidebarBussinessLine
-	display       : table-cell 
-	vertical-align: top 
-	width         : 29%
 
-//Contenedor de Contenido
-.pageBussinessLine__content
+/***************************************************************************************/
+/**--  SINGLE CUSTOM POST TYPE  ------------------------------------------------------**/
+/***************************************************************************************/
+
+//Sidebar
+aside.sidebarsinglePostType
+	background    : #F0F0F0
+	bottom        : 0
+	left          : -7%
+	padding       : 75px 50px 75px 75px
+	position      : absolute
+	top           : 0
+	vertical-align: top
+	width         : 31%
+
+	//Título 
+	h2.title 
+		font-size  : 20px 
+		font-weight: 600 
+		margin     : 0 auto 35px 
+		padding    : 0 0 7px 
+		position   : relative
+		//before
+		&:before
+			background: #0070B6
+			bottom    : 0
+			content   : ""
+			height    : 3px 
+			position  : absolute
+			width     : 165px 
+
+	//Menu
+	ul.menu
+		margin : 0
+		padding: 0 
+		li 
+			border-bottom: 1px solid #C4BDD2
+			display      : block
+			margin       : 0 auto 25px
+			padding      : 0 0 10px 
+			//Link
+			a 
+				+transition( all 500ms ease-in-out )
+				color          : black 
+				font-size      : 15px 
+				text-decoration: none
+				//Hover
+				&.active , &:hover 
+					color: #0070B6
+			//ícono 
+			i 
+				background-size: cover 
+				display        : inline-block
+				height         : 26px
+				margin         : 0 15px 0 0 
+				vertical-align : middle
+				width          : 26px 
+			//span 
+			span 
+				display: inline-block
+
+//Contenedor de Contenido Para Single Custom Post type
+.singleArticlePostType__content
+	margin    : 0 0 0 24%
+	min-height: 500px 
+	padding   : 75px 
+
+	//Imagen destacada
+	figure.singleFeaturedImage
+		margin   : 0 auto 43px
+		max-width: 738px
+
+	//Parrafos y listas 
+	ul , p 
+		font-size: 15px 
+
+
+/***************************************************************************************/
+/**--  PÁGINA PROYECTOS  -------------------------------------------------------------**/
+/***************************************************************************************/
+
+/** [ CONTENEDOR DE CONTENIDO ] **/
+.pageProyectos__content
+	justify-content : space-around 
+	//Sobreescribir items de preview de articulo 
+	article.itemProyecto__preview
+		border   : 3px solid #A8CB43
+		margin   : 0 23px 48px
+		max-width: 291px
+		width    : 100%
+		overflow : hidden
+		//Hover article
+		&:hover 
+			//Figure
+			figure 
+				background-size: 150%
+
+/** [ SINGLE O DETALLE DE PROYECTO ] **/
+.singleArticleProyect
+	
+	//Título
+	h2.singleArticleProyect__title
+		color      : #424242
+		font-size  : 22px
+		font-weight: 600
+		line-height: 26px
+		margin     : 0 auto 20px 
+		position   : relative
+		//Before
+		&:before 
+			background: #0070B6
+			content   : ""
+			height    : 30px
+			left      : -15px 
+			position  : absolute
+			top       : 10px 
+			width     : 4px
+		//Span de Titulo de negocios
+		span.line-bussiness
+			color      : #0070B6
+			font-size  : 24px 
+			font-weight: 600 
+		//Link
+		a 
+			text-decoration : none 
+
+//Galeria de Detalle de Proyecto
+.singleArticleProyect__gallery
+	justify-content: space-around
+	//Imagen
+	figure 
+		border    : 3px solid #A8CB43
+		margin    : 0 5px 16px
+		max-height: 180.16px
+		overflow  : hidden
+		width     : 31.9%
 
 
 /***************************************************************************************/

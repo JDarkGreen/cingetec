@@ -20,14 +20,58 @@
 ?>
 
 <!-- Layout de Página -->
-<main class="pageContentLayout">
+<main class="">
 
 	<!-- Wrapper de Contenido -->
-	<div class="pageWrapperLayout">
+	<div class="pageWrapperLayout containerRelative">
+
+		<!-- ASIDE LISTA DE LINEAS DE NEGOCIOS -->
+		<aside class="sidebarsinglePostType">
+
+			<!-- Título -->
+			<h2 class="title text-uppercase"> <?= __("líneas de negocio","LANG"); ?> </h2>
+
+			<!-- Lista -->
+			<ul class="menu">
+
+				<?php  
+					#Obtener todas las lineas de negocio
+					$args = array(
+						"order"          => 'ASC',
+						"orderby"        => 'name',
+						"post_status"    => 'publish',
+						"posts_per_page" => -1,
+						'post_type'      => 'line-bussiness',
+					);
+
+					$all_bussiness_line = get_posts( $args );
+
+					foreach(  $all_bussiness_line as $bussiness_line ) :
+				?>
+				<li>
+					<a href="<?= get_permalink( $bussiness_line->ID ); ?>" class="d-block <?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>">
+
+						<!-- Icono -->
+						<?php  
+							$icon_bussiness = get_post_meta( $bussiness_line->ID , 'mb_image_icon_text' , true );
+						?>
+						<i style="background-image: url('<?= $icon_bussiness ?>');"></i>
+
+						<!-- Texto --> <span> <?= $bussiness_line->post_title; ?> </span>
+				
+					</a> <!-- /link -->
+
+				</li>
+
+				<?php endforeach; ?>
+				
+			</ul> <!-- /.menu -->
+			
+		</aside> <!-- /.sidebarsinglePostType -->
 
 
 		<!-- CONTENEDOR DE CONTENIDO -->
-		<div class="pageBussinessLine__content">
+		<div class="singleArticlePostType__content">
 			
 			<!-- Titulo -->
 			<h2 class="text-uppercase titleCommon__section">
@@ -43,6 +87,8 @@
 			<div class="singleBussinessLine__text">
 				<?= apply_filters( "the_content" , $post->post_content ); ?>
 			</div> <!-- /.singleBussinessLine__text -->
+
+			<!-- Espacio  --> <br><br>
 
 
 			<!-- CAROUSEL DE PROYECTOS SEGUN LA LINEA DE NEGOCIO -->
@@ -89,7 +135,12 @@
 					<?php if( has_post_thumbnail($proyect->ID) ) : ?>
 
 						<figure class="itemProyecto__carousel-preview">
-							<?= get_the_post_thumbnail( $proyect->ID , 'full' , array("class"=>'img-fluid d-block m-x-auto') ); ?>
+							<!-- Link a proyecto -->
+							<a href="<?= get_permalink( $proyect->ID ); ?>">
+
+								<?= get_the_post_thumbnail( $proyect->ID , 'full' , array("class"=>'img-fluid d-block m-x-auto') ); ?>
+
+							</a> <!-- / -->
 						</figure> <!-- /.itemProyecto__carousel-preview --> 
 
 					<?php endif; ?>
@@ -111,10 +162,28 @@
 
 			<!-- Limpiar floats --> <div class="clearfix"></div>
 
-		</div> <!-- /.pageBussinessLine__content -->
-
+		</div> <!-- /.singleArticlePostType__content -->
 
 	</div> <!-- /.pageWrapperLayout -->
+
+	<?php  
+	/**
+	* Incluir Plantilla banner de Servicios
+	**/
+	include( locate_template("partials/services/banner-services.php") );
+	?>
+
+	<!-- Wrapper de Contenido / Contenedor Layout -->
+	<div class="pageWrapperLayout">
+
+		<!-- SECCION DE CLIENTES -->
+		<?php  
+			#Clientes 
+			include( locate_template("partials/common/section-carousel-clients.php") );
+		?>
+
+	</div> <!-- /.pageWrapperLayout -->
+
 	
 </main> <!-- /.pageWrapper -->
 

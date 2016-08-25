@@ -5,7 +5,7 @@
 add_action( 'add_meta_boxes', 'attached_images_meta' );
 
 function attached_images_meta() {
-  $screens = array( 'post', 'page' , 'servicio' , 'producto-theme' , 'galery-images' ); 
+  $screens = array( 'post', 'page' , 'servicio' , 'theme-proyecto' , 'galery-images' ); 
   //add more in here as you see fit
 
   foreach ($screens as $screen) {
