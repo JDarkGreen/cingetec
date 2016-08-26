@@ -1,15 +1,26 @@
-<?php /* Template Name: Página Proyectos Template */ ?>
+<?php /* File Name: Archive Líneas Negocio Template */ 
+
+/**
+* Este template muestra los proyectos según la linea de negocio
+**/
+?>
 <!-- Header -->
 <?php 
 	get_header(); 
-
-	//Opciones del tema 
+	
+	#Opciones de Tema
 	$options = get_option("theme_settings");
-	//Objeto actual - Pagina 
-	global $post; 
-	// Seteamos la variable banner de acuerdo al post
-	$banner = $post;  
 
+	#Objeto actual - Pagina 
+	global $post; 
+
+	#Página de proyectos
+	$page_proyects = get_page_by_title("proyectos");
+
+	#Seteamos la variable banner de acuerdo al post o página
+	$banner = $page_proyects;  
+
+	#Incluir banner de página
 	include( locate_template("partials/common/banner-common-pages.php") ); 
 
 	//Query vars para linea de negocio
@@ -19,6 +30,7 @@
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	//Posts por página
 	$posts_per_page = 9;
+
 ?>
 
 <!-- Barra de Navegación Para Los Proyectos Según la linea de Negocio -->
@@ -30,7 +42,7 @@
 		<div class="navigation-content">
 			
 			<!-- Primer elemento -->
-			<a href="<?= get_permalink( $post->ID ); ?>" class="active"> <?= __("Todos" , LANG ); ?> </a>
+			<a href="<?= get_permalink( $page_proyects->ID ); ?>" class=""> <?= __("Todos" , LANG ); ?> </a>
 			<?php  
 				#Obtener todas las lineas de negocio
 				$args = array(
@@ -58,7 +70,7 @@
 					$rebuild_link = add_query_arg( $var_key , $var_value , $link_custom_postype_archive );
 					
 			?> <!-- Item -->
-				<a href="<?= $rebuild_link; ?>" class="<?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>"> <?= $bussiness_line->post_title; ?>
+				<a href="<?= $rebuild_link; ?>" class="<?= $bussiness_line->post_name === $current_bussiness_line ? 'active' : '' ?>"> <?= $bussiness_line->post_title; ?>
 				</a> <!-- / -->
 
 			<?php endforeach; ?>	
@@ -88,6 +100,13 @@
 					'post_status'    => 'publish',
 					'post_type'      => 'theme-proyecto',
 					'posts_per_page' => $posts_per_page,
+					'meta_query'     => array(
+						array(
+							'key'     =>  'mb_bussiness_line_project_select',
+							'value'   =>  $current_bussiness_line,
+							'compare' =>  '=',
+						),
+					),
 				);
 				#query 
 				$the_query = new WP_Query( $args );
@@ -166,6 +185,11 @@
 			<?php } ?>
 
 		</section> <!-- /.sectionPagination -->
+
+		<!-- Si no tiene proyectos -->
+		<?php else: ?>
+
+			<h2 class="text-uppercase titleCommon__section titleCommon__section--blue"> <?= __("Proyectos no disponibles por el momento. Gracias" , LANG ); ?> </h2>
 
 		<?php endif; #fin condicional ?>
 

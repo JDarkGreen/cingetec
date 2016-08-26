@@ -583,6 +583,30 @@ aside.sidebarsinglePostType
 /**--  PÁGINA PROYECTOS  -------------------------------------------------------------**/
 /***************************************************************************************/
 
+/** [ NAVEGACION DE PÁGINA PRINCIPAL ] **/
+.pageProyectos__navigation
+	background: #F0F0F0
+	padding   : 18px 0
+	//Contenedor table
+	.navigation-content
+		display: table
+		width: 100%
+		//Links
+		a 
+			+transition( all 500ms ease-in-out )
+			border-right   : 1px solid black
+			color          : black 
+			display        : table-cell
+			font-size      : 15px 
+			font-weight    : 600 
+			line-height    : 1em
+			text-align     : center
+			text-decoration: none
+			//Hover and active
+			&:hover , &.active 
+				color : #0070B8
+
+
 /** [ CONTENEDOR DE CONTENIDO - PÁGINA ] **/
 .pageProyectos__content
 	justify-content : space-around 
@@ -590,10 +614,10 @@ aside.sidebarsinglePostType
 	article.itemProyecto__preview
 		border   : 3px solid #A8CB43
 		margin   : 0 0 48px
-		width    : 31%
+		width    : 28%
 		overflow : hidden
 		figure 
-			height: 200px
+			height: 165px
 
 /**[ CONTENEDOR ARCHIVO DE PÁGINA ] **/
 .archiveProyectos__content
@@ -606,13 +630,8 @@ aside.sidebarsinglePostType
 		overflow : hidden
 		//Imagen
 		figure 
-			background-size: 120%
-			height         : 138px
-		//Hover article
-		&:hover 
-			//Figure
-			figure 
-				background-size: 150%
+			height: 114px
+
 
 
 /** [ SINGLE O DETALLE DE PROYECTO ] **/
@@ -650,10 +669,10 @@ aside.sidebarsinglePostType
 	//Imagen
 	figure 
 		border    : 3px solid #A8CB43
-		margin    : 0 5px 16px
+		margin    : 0 0 16px
 		max-height: 180.16px
 		overflow  : hidden
-		width     : 31.9%
+		width     : 45%
 
 
 /***************************************************************************************/
@@ -707,111 +726,58 @@ aside.sidebarsinglePostType
 		max-width: 100%
 		width    : 100%
 
+
 /***************************************************************************************/
-/**--  PAGINA GALERÍA ----------------------------------------------------------------**/
+/**--  PAGINA CLIENTES ---------------------------------------------------------------**/
 /***************************************************************************************/
 
-//SECCION GENERAL GALERÍA
-.pageGallery__section
-	// ARTICLE - ITEM DE GALERÍA
-	.item-gallery
-		margin: 0 auto 45px
-
-		//IFRAME PARA LOS VIDEOS
-		iframe 
-			height: 300px
-			width : 100%
-		//Hover article
-		&:hover 
-			.container-hover 
-				+opacity( 1 )
-	
-	//Contenido de texto 
-	.item-gallery-content
-		height  : 43px
-		overflow: hidden
-
-	//CONTENEDOR HOVER 
-	.container-hover 
-		+opacity( 0 )
-		+transition( all 500ms ease-in )
-		background : rgba( 0 , 152 , 0, .6 )
-		bottom     : 0
-		color      : white
-		font-size  : 25px 
-		font-weight: 600 
-		left       : 0
-		position   : absolute
-		right      : 0
-		top        : 0 
-		//Icon 
-		i 
-			+border-radius( 50% )
-			border : 4px solid rgba(255,255,255,0.25)
-			color  : rgba(255,255,255,0.25)
-			display: flex
-			height : 40px	
-			margin : 0 auto
-			margin : 0 auto 15px 
-			width  : 40px
+//SECCION CONTENEDOR DE FILAS
+.containerRow__client
+	border-bottom: 1.5px solid #d0d0d0
+	display      : table
+	padding      : 65px 0
+	width        : 100%
+	//Figure o imágen
+	figure 
+		display       : table-cell
+		vertical-align: middle 
+		width         : 20%
 
 
 /***************************************************************************************/
 /**--  PÁGINA CONTACTO ---------------------------------------------------------------**/
 /***************************************************************************************/
 
-/** INFORMACIÓN DE CONTACTO **/
-.pageContacto__info	
-	background : rgba(255,255,255,.9)
-	box-shadow : 1px 2px 8px #666
-	left       : 15px
-	overflow   : hidden
-	padding    : 10px
-	position   : absolute
-	top        : 15px
-	width      : 300px
-	z-index    : 1000
-	white-space: pre-line
-	//Estilos internos
-	pre 
-		white-space: pre-line
-	pre , span , p 
-		font-size  : 12px
-		font-family: "Arial", sans-serif !important
+/** [ PÁGINA ] **/
+.pageContact
+	margin : 0 auto 50px
 
+/** Imágen Destacada */
+.pageContacto__featured-image
+	max-width: 330px 
+	width    : 100% 
 
-/* Sección Formulario de Contacto */
-.pageContacto__formulary
-	background   : rgba(255,255,255,0.7)
-	box-shadow   : 1px 2px 8px #666
-	min-height   : 400px
-	overflow     : hidden
-	padding      : 10px
-	position     : absolute
-	right        : 10px
-	top          : 10px
-	width        : 280px
-	z-index      : 1000
-	//Título de sección
-	h2 
-		font-size  : 19px 
-		font-weight: 600 
-		margin     : 16px auto
-	//Fommulario dentro de sección
-	form 
-		//inputs y textarea 
-		.text-form, .text_area	
-			border   : #e6e6e6 2px solid
-			color    : #333
-			font-size: 13px 
-			margin   : 0 2px 10px 0
-			outline  : none
-			padding  : 9px 5px
-			width    : 95%
+/** [ FORMULARIO DE CONTACTO ] **/
+/** [ CLASE AGRUPADORA DE INPUTS ] **/
+.pageContacto__form__group
+	margin : 0 auto 17px
+	//Inputs y textarea
+	input, textarea
+		+border-radius( 5px )
+		border : 1px solid #d0d0d0
+		color  : #929292
+		outline: 0
+		padding: 12px 17px 
+		width  : 100% 
+	//Solo texarea
+	textarea
+		height    : 250px 
+		max-height: 250px 
+
 
 //SECCIÓN DE MAPA [ Común y protegido ]
 #canvas-map
-	height: 540px 
+	height: 496px 
 	width : 100%
 
 

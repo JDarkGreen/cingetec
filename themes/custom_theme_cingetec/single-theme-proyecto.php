@@ -190,10 +190,10 @@
 	</div> <!-- /.pageWrapperLayout -->
 
 	<?php  
-	/**
-	* Incluir Plantilla banner de Servicios
-	**/
-	include( locate_template("partials/services/banner-services.php") );
+		/**
+		* Incluir Plantilla banner de Servicios
+		**/
+		include( locate_template("partials/services/banner-services.php") );
 	?>
 
 	<!-- Wrapper de Contenido / Contenedor Layout -->

@@ -3,9 +3,13 @@
 ** ARCHIVO PARTIAL LISTA DE DATOS
 ** EN EL FOOTER RED SOCIAL
 **/
+
+#Si existe una variante
+$social_links_class = isset($social_links_class) && !empty($social_links_class) ? $social_links_class : "";
+
 ?>
 
-<ul class="mainFooter__social-data">
+<ul class="mainFooter__social-data <?= $social_links_class ?>">
 	
 	<!-- Facebook -->
 	<?php if( isset($options['theme_social_youtube_text']) && !empty($options['theme_social_youtube_text'] ) ) : ?>

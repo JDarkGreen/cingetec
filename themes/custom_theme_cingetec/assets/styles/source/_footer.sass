@@ -38,7 +38,7 @@
 		padding    : 0 0 0 15px 
 
 
-/* Lista de Datos */
+/** [ LISTA DE DATOS ] **/
 ul.mainFooter__list-data
 	list-style-type: none 
 	margin         : 0 
@@ -59,6 +59,16 @@ ul.mainFooter__list-data
 			vertical-align: top
 			width         : 20px 
 
+	/** [ VARIACION PÁGINA DE CONTACTO ] **/
+	&.page-contact-menu-data
+		li 
+			margin: 0 auto 28px
+			//Texto destacado
+			span.text-featured
+				color : #0070B8
+			i 
+				color : #0070B8
+
 /* Redes Sociales */
 ul.mainFooter__social-data
 	list-style-type: none
@@ -75,6 +85,12 @@ ul.mainFooter__social-data
 			//Hover
 			&:hover 
 				+animation( expand 1.2s ease-in-out infinite )
+
+	/** [ VARIACION PÁGINA DE CONTACTO ] **/
+	&.page-contact-social-links
+		li 
+			a 
+				color : #0070B8
 
 //Variacion texto destacado
 .text-featured

@@ -3,9 +3,13 @@
 ** ARCHIVO PARTIAL LISTA DE DATOS
 ** EN EL FOOTER DATOS DE CONTACTO
 **/
+
+#Si existe una variante en el menu
+$menu_class = isset($menu_class) && !empty($menu_class) ? $menu_class : "";
+
 ?>
 
-<ul class="mainFooter__list-data">
+<ul class="mainFooter__list-data <?= $menu_class ?>">
 	
 	<!-- Telefonos -->
 	<?php if( isset($options['theme_phone_text']) && !empty($options['theme_phone_text']) ) : ?>
