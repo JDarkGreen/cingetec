@@ -42,10 +42,9 @@
 					<?php the_post_thumbnail('full', array('class'=>'img-fluid') ); ?>
 				<?php endif; ?>
 
-				<?php /*
 
-				<!-- Caption Titulo y contenido -->
-				<div class="caption sft big_white" data-x="480" data-y="67" data-speed="3000" data-start="900" data-easing="easeOutBack">
+				<!-- Caption Titulo -->
+				<div class="caption sft big_white" data-x="480" data-y="277" data-speed="3000" data-start="900" data-easing="easeOutBack">
 					<section class="pageInicio__slider__content">
 						<h2 class="text-uppercase">
 							<?php _e( get_the_title() , LANG ); ?>
@@ -53,6 +52,16 @@
 					</section> <!-- /.pageInicio__slider__content -->
 				</div> <!-- /.caption sft big_white -->	
 
+				<!-- Caption Contenido -->
+				<div class="caption sft big_white" data-x="480" data-y="323" data-speed="3000" data-start="1000" data-easing="easeInBack">
+					<section class="pageInicio__slider__content">
+						<h2 class="text-uppercase subtitle">
+							<?php _e( get_the_content() , LANG ); ?>
+						</h2> <!-- /.pageInicio__slider__title -->
+					</section> <!-- /.pageInicio__slider__content -->
+				</div> <!-- /.caption sft big_white -->	
+
+				<?php /*
 				<!-- Meta Contenido - Información Adicional -->
 				<div class="caption sft big_white" data-x="415" data-y="180" data-speed="3000" data-start="2000" data-easing="easeOutBack">
 					<!-- Meta Contenido - Información Adicional -->
@@ -87,7 +96,7 @@
 		</a>
 	</section> <!-- /.pageInicio__slider__arrows -->
 
-
+	<?php /*
 	<!-- Dots o indicadores -->
 	<section id="pageInicio__slider__dots" class="pageInicio__slider__dots text-xs-center">
 		<?php
@@ -96,6 +105,7 @@
 			<a href="#" data-slider="carousel-home" data-dot="<?= $j + 1; ?>"></a>
 		<?php $j++; endwhile; wp_reset_postdata(); ?>
 	</section> <!-- /.pageInicio__slider__dots -->
+	*/ ?>
 
 
 </div> <!-- /.banner-container relative -->

@@ -185,18 +185,28 @@ body.admin-bar
 
 /* [ Contenido o caption de carousel ] */
 .pageInicio__slider__content
-	font-family: "Helvetica-Heavy", sans-serif
+	font-family: "Arial", sans-serif
 	white-space: normal
 	width      : 540px
 	word-break : keep-all
+	text-align : right
 	// Título 
 	h2 
-		font-size  : 94px
+		background : white
+		color      : #0070B8
+		display    : inline-block
+		font-size  : 20px
 		font-weight: 700
 		line-height: 1.4em
+		padding    : 8px 24px
+		//Subtitulo
+		&.subtitle 
+			background: #A5C938
+			color     : black 
+
 
 //Contenedor de meta contenido
-.pageInicio__slider__meta-content
+/*.pageInicio__slider__meta-content
 	color  : white 
 	padding: 0 0 0 70px
 	//Párrafos o contenido del texto
@@ -212,7 +222,7 @@ body.admin-bar
 		font-size  : 20px 
 		font-style : italic 
 		font-weight: 600
-		max-width  : 255px
+		max-width  : 255px */
 
 /** [ Flechas de Carousel ] **/
 .pageInicio__slider__arrows
@@ -594,8 +604,8 @@ aside.sidebarsinglePostType
 		//Links
 		a 
 			+transition( all 500ms ease-in-out )
-			border-right   : 1px solid black
-			color          : black 
+			border-right   : 1px solid #8D8A8A
+			color          : #8D8A8A
 			display        : table-cell
 			font-size      : 15px 
 			font-weight    : 600 
@@ -605,6 +615,9 @@ aside.sidebarsinglePostType
 			//Hover and active
 			&:hover , &.active 
 				color : #0070B8
+			//No border
+			&.no-border
+				border-right: none !important
 
 
 /** [ CONTENEDOR DE CONTENIDO - PÁGINA ] **/

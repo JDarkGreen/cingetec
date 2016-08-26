@@ -43,6 +43,10 @@
 
 				$all_bussiness_line = get_posts( $args );
 
+				#Control para última linea
+				$control_line = 0;
+
+				#Recorrido
 				foreach(  $all_bussiness_line as $bussiness_line ) :
 
 					#Obtener link de archive  -->
@@ -58,10 +62,10 @@
 					$rebuild_link = add_query_arg( $var_key , $var_value , $link_custom_postype_archive );
 					
 			?> <!-- Item -->
-				<a href="<?= $rebuild_link; ?>" class="<?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>"> <?= $bussiness_line->post_title; ?>
+				<a href="<?= $rebuild_link; ?>" class="<?= $post->ID === $bussiness_line->ID ? 'active' : '' ?> <?= $control_line === count($all_bussiness_line)-1 ? 'no-border' : '' ?> "> <?= $bussiness_line->post_title; ?>
 				</a> <!-- / -->
 
-			<?php endforeach; ?>	
+			<?php $control_line++; endforeach; ?>	
 
 		</div> <!-- /.navigation-content -->
 
