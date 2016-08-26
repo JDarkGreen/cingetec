@@ -15,7 +15,7 @@
 	//Variable paged paginación
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	//Posts por página
-	$posts_per_page = 7;
+	$posts_per_page = 9;
 ?>
 
 <!-- Layout de Página -->

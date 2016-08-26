@@ -100,8 +100,9 @@
 
 			</div> <!-- /. -->
 
-
 		</div> <!-- /.containerFlex containerSpaceBetween -->
+
+	</div> <!-- /.pageWrapperLayout -->
 
 </main> <!-- /.pageWrapper -->
 

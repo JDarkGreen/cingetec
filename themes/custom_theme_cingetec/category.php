@@ -26,85 +26,93 @@
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 ?>
 
-<!-- Contenedor Principal -->
-<main class="">
+<!-- Layout de Página -->
+<main class="pageContentLayout">
 	
-	<!-- Contenedor Contenido -->
-	<section class="pageWrapperLayout pageBlog">
-
-		<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __(  $current_term->name , LANG ); ?> </h2>
-
-		<!-- Separador --> <br/>
+	<!-- Wrapper de Contenido -->
+	<div class="pageWrapperLayout pageBlog">
 
 		<!-- Contenedor  -->
 		<div class="row">
 			
 			<!-- Previews de Noticias o blog -->
 			<div class="col-md-8">
+		
+				<!-- Titulo -->
+				<h2 class="text-uppercase titleCommon__section">
+					<?= __( $current_term->name , "LANG" ); ?>
+				</h2> <!-- /.text-uppercase titleCommon__section -->
 
-				<section class="pageBlog__content">
-					<?php  
-						#Extraemos todos los posts disponibles 
-						$args = array(
-							'category_name' => $current_term->slug,
-							'order'         => 'DESC',
-							'orderby'       => 'date',
-							'paged'         => $paged,
-							'post_status'   => 'publish',
-							'post_type'     => 'post',
-							'posts_per_page'=> $posts_per_page,
-						);
-						$the_query = new WP_Query( $args );
+			 	<!-- Ultimas entradas -->
+			 	<?php  
 
-						if( $the_query->have_posts() ) :
+					#Extraemos todos los posts disponibles 
+					$args = array(
+						'order'         => 'DESC',
+						'orderby'       => 'date',
+						'paged'         => $paged,
+						'post_status'   => 'publish',
+						'post_type'     => 'post',
+						'cat'           => $current_term->term_id,
+						'posts_per_page'=> $posts_per_page,
+					);
+					$the_query = new WP_Query( $args );
 
-						/* Variable de control para asignar filas */
-						$control_row     = 0;	
-						/* Item a mostrar por fila */
-						$item_per_row    = 3;
-						/* Minimo num items  */
-						$min_num_per_row = $item_per_row - 1;
-						/* Maximo num items  */
-						$max_num_per_row = $item_per_row + $min_num_per_row;
+					#Si hay post
+					if( $the_query->have_posts() ) :
+			 	
+					#Recorrido
+					while( $the_query->have_posts() ) : $the_query->the_post();
+			 	?>
 
-						while( $the_query->have_posts() ) : $the_query->the_post();
-					?> 
+			 		<article class="articleBlog__preview">
+						<!-- Figure -->
+						<a href="<?= get_the_permalink( get_the_ID() ); ?>">
 
-					<!-- ABRIR FILA -->
-					<?php if( $control_row % $item_per_row == 0 ) : ?><div class="row"><?php endif; ?>
+							<?php  
+								#Extraer imagen destacada
+								$feat_img = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
+								$feat_img = !empty($feat_img) ? $feat_img : "http://placehold.it/620x348";
+							?>
 
-						<!-- ARTICULO O ITEM  -->
-						<div class="col-xs-12 col-md-4">
-							<article class="articleBlog__preview text-xs-center">
-								<a href="<?= get_the_permalink( get_the_ID() ); ?>">
-									<!-- Figure -->
-									<figure>
-										<?php if( has_post_thumbnail() ) : ?>
-											<?= get_the_post_thumbnail( get_the_ID() , 'full' , array('class'=>'img-fluid center-block') ); ?>
-										<?php else : ?>
-											<img src="http://placehold.it/620x348" class="img-fluid" alt="<?= get_the_title(); ?>" />
-										<?php endif; ?>
-									</figure>
+							<figure style="background-image: url(<?= $feat_img; ?> )"></figure>
+						</a>
 
-									<!-- Nombre -->
-									<h2 class="text-uppercase"><?= get_the_title(); ?></h2>
-								</a>
-							</article> <!-- /.articleBlog__preview -->
-						</div> <!-- /.col-xs-12 col-md-4" -->
+						<!-- Contenedor de Texto -->
+						<div class="container-text">
+							
+							<!-- Nombre -->
+							<h2 class="text-uppercase"><?= get_the_title(); ?></h2>
 
-					<!-- CERRAR FILA -->
-					<?php if( ($control_row == $min_num_per_row ) || ($control_row >= $max_num_per_row && ($control_row - $max_num_per_row ) % $item_per_row == 0  ) ) : ?> 
-					</div><!-- /end row --> <?php endif; ?>
+							<!-- Extracto -->
+							<?php  
+								#Limitar 40 palabras
+								$limit_words = 40;
+								#Extraer palabras 
+								$content = wp_strip_all_tags( get_the_content() );
+								#Extraer 
+								$content = wp_trim_words( $content , $limit_words );
+								#Mostrar con filtro
+								echo apply_filters( "the_content" , $content );
+							?>
+							
+							<div class="clearfix"></div>	
+							<!-- Boton ver más -->
+							<a href="<?= get_permalink( get_the_ID() ); ?>" class="show-more">
+								<?= __( "Leer más" , "LANG" ); ?>
+							</a>
 
-					<?php $control_row++; endwhile; ?>
+						</div> <!-- /.container-text -->
 
-					<!-- Limpiar Floats --> <div class="clearfix"></div>
+					</article> <!-- /.articleBlog__preview -->
 
-					<!-- Páginación aquí -->
+			 	<?php endwhile; ?>
+
+			 		<!-- Páginación aquí -->
 					<section class="sectionPagination text-xs-center">
 						<!-- Link to Home -->
 						<?php $current_item_page = ($paged - 1) * $posts_per_page; ?>
-						<a href="#"> <?= "Página ( $current_item_page / $the_query->found_posts )" ?></a>
+						<span> <?= "Página ( $current_item_page / $the_query->found_posts )" ?></span>
 						<!-- Enlaces a página -->
 						<?php  
 							/*
@@ -115,15 +123,21 @@
 							<a class="<?= $i == $paged ? 'active current' : '' ?>" href="<?= get_pagenum_link( $i ); ?>"> <?= $i; ?> </a>
 						<?php } /* endfor */ ?>
 					</section> <!-- /.sectionPagination -->
-
-					<?php wp_reset_postdata(); endif; ?>
-
-				</section> <!-- /. -->
 				
-			</div> <!-- /.col-md-8 -->	
+				<!-- Si no hay post disponibles -->
+				<?php else: ?>
 
-			<!-- Incluir Template de Categorías -->
+					<h2 class="text-uppercase titleCommon__section titleCommon__section--blue">
+						<?= __( "Articulos no disponibles por el momento. Gracias" , "LANG" ); ?>
+					</h2>
+
+				<?php endif; wp_reset_postdata(); ?>
+
+			</div> <!-- /.col-md-8 -->
+	
 			<div class="col-md-4">
+
+				<!-- Incluir Template de Categorías -->
 				<?php 
 					/* Extraer todas las categorías padre */  
 					$categorias = get_categories( array(
@@ -132,13 +146,26 @@
 					#Incluir plantilla tema
 					include( locate_template("partials/common/sidebar-categories.php") ); 
 				?>
-			</div> <!-- /.col-md-4 -->
+
+				<!-- Espacio --> <br><br>
+
+				<!-- Incluir facebook -->
+				<?php 
+					#Parametro incluir variable facebook link
+					$facebook_link = isset($options['theme_social_fb_text']) && !empty($options['theme_social_fb_text']) ? $options['theme_social_fb_text'] : "";
+
+					include( locate_template("partials/common/section-facebook.php") );  
+				?>
+
+			</div> <!-- /.col-md-4-->
+
 
 		</div> <!-- /.row -->
 
-	</section> <!-- /.pageWrapperLayout -->
+	</div> <!-- /.pageWrapperLayout -->
 
 </main> <!-- /.pageWrapper -->
+
 
 <!-- Footer -->
 <?php get_footer(); ?>

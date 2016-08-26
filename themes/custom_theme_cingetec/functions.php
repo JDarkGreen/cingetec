@@ -97,5 +97,19 @@ include_once("functions/add-new-taxonomy.php");/********************************
 include_once("functions/taxonomy/custom-fields-taxonomy.php");
 
 
+/***********************************************************************************************/
+/* Registrar NUEVAS QUERY VARS campos personalizados para pasar argumentos en la URL  */
+/***********************************************************************************************/
+
+/*
+Con el fin de ser capaz de sumar y trabajar con su propia consulta personalizada VARs que anexa a las URL (por ejemplo: "http://mysite.com/some_page/?my_var=foo" - por ejemplo usando add_query_arg ()) que debe añadirlos a las variables de consulta públicos disponibles para WP_Query.
+*/
+function add_query_vars_filter( $vars ){
+  $vars[] = "line-name";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
+
 
 ?>

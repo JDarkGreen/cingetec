@@ -33,14 +33,14 @@ pertenece la pagina actual a un custom post type */
 		
 		}
 
-		//Si el tipo de post es post y está en la página de articulos activar este item
-		if( get_post_type( $post_id ) === "especie-maderalia" && ( strpos( $menu_slug , "especies" ) !== false ) )
+		//Si el tipo de post es line bussiness y el link es linea de negocios
+		if( get_post_type( $post_id ) === "line-bussiness" && ( strpos( $menu_slug , "inea-de-negocios" ) !== false ) )
 		{
 			$classes[] = 'current-menu-this-item';
 		}
 
-		//Si el tipo de post es producto maderalia y está en la página de productos
-		if( get_post_type( $post_id ) === "producto-maderalia" && ( strpos( $menu_slug , "productos-y-servicios" ) !== false ) )
+		//Si el tipo de post es theme proyecto y el link de de proyectos
+		if( get_post_type( $post_id ) === "theme-proyecto" && ( strpos( $menu_slug , "proyectos" ) !== false ) )
 		{
 			$classes[] = 'current-menu-this-item';
 		}

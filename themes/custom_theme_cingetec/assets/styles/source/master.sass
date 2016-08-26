@@ -568,9 +568,11 @@ aside.sidebarsinglePostType
 	padding   : 75px 
 
 	//Imagen destacada
-	figure.singleFeaturedImage
-		margin   : 0 auto 43px
-		max-width: 738px
+	figure
+		//variacion
+		&.singleFeaturedImage
+			margin   : 0 auto 43px
+			max-width: 738px
 
 	//Parrafos y listas 
 	ul , p 
@@ -581,21 +583,37 @@ aside.sidebarsinglePostType
 /**--  PÁGINA PROYECTOS  -------------------------------------------------------------**/
 /***************************************************************************************/
 
-/** [ CONTENEDOR DE CONTENIDO ] **/
+/** [ CONTENEDOR DE CONTENIDO - PÁGINA ] **/
 .pageProyectos__content
 	justify-content : space-around 
 	//Sobreescribir items de preview de articulo 
 	article.itemProyecto__preview
 		border   : 3px solid #A8CB43
-		margin   : 0 23px 48px
-		max-width: 291px
-		width    : 100%
+		margin   : 0 0 48px
+		width    : 31%
 		overflow : hidden
+		figure 
+			height: 200px
+
+/**[ CONTENEDOR ARCHIVO DE PÁGINA ] **/
+.archiveProyectos__content
+	justify-content : space-around 
+	//Sobreescribir items de preview de articulo 
+	article.itemProyecto__preview
+		border   : 3px solid #A8CB43
+		margin   : 0 auto 36px
+		width    : 30%
+		overflow : hidden
+		//Imagen
+		figure 
+			background-size: 120%
+			height         : 138px
 		//Hover article
 		&:hover 
 			//Figure
 			figure 
 				background-size: 150%
+
 
 /** [ SINGLE O DETALLE DE PROYECTO ] **/
 .singleArticleProyect
@@ -644,31 +662,42 @@ aside.sidebarsinglePostType
 
 /** [ PREVIEW DE BLOG ] **/
 .articleBlog__preview
-	margin: 0 auto 10px
+	background: #F4F1F2
+	margin    : 0 auto 30px
+	padding   : 20px 
 	//Imagen
 	figure 
-		overflow: hidden
-		img 
-			+transition( all 500ms ease )
-			height    : auto 
-			margin    : 0 auto 
-			max-height: 106px 
-			max-width : 189px 
-			width     : 100%
+		background-size: cover 
+		display        : inline-block
+		height         : 122px
+		margin         : 0 32px 0 0
+		max-width      : 173px
+		overflow       : hidden
+		vertical-align : top
+		width          : 100%
+	//Contenido
+	.container-text
+		display       : inline-block
+		width         : 70%
 	//Titulo
 	h2
-		align-items    : center
-		color          : green
-		display        : flex
+		color          : black
 		font-size      : 15px
 		font-weight    : 600
-		height         : 50px
-		justify-content: center
-		margin         : 0
-	//Hover Preview
-	&:hover 
-		img 
-			+opacity( 0.7 )
+		margin         : 0 auto 18px
+	//Parrafos
+	p 
+		color      : #696969
+		font-size  : 14px 
+		line-height: 1.3em 
+		margin     : 0 
+	//Link
+	a.show-more 
+		color          : #0070B8
+		font-size      : 14px
+		font-weight    : 700 
+		text-decoration: none 
+
 
 /* Articulo de blog */
 .articleBlog

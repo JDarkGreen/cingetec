@@ -7,7 +7,7 @@ $current_term = get_queried_object(); //Objeto actual si es taxonomía
 ?>
 
 <aside class="sidebarCommon">
-	<!-- Titulo de Sidebar --> <h2 class="titleSidebar"> <?php _e( "Categorías" , LANG ); ?></h2>
+	<!-- Titulo de Sidebar --> <h2 class="titleSidebar text-uppercase"> <?php _e( "Categorías" , LANG ); ?></h2>
 	
 	<!-- Sección de Categorías -->
 	<?php foreach( $categorias as $categoria ) : ?>

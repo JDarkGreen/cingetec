@@ -1,4 +1,4 @@
-<?php /* Template Name: Página Líneas Negocio Template */ ?>
+<?php /* File Name: Single Proyectos Template */ ?>
 <!-- Header -->
 <?php 
 	get_header(); 
@@ -29,7 +29,7 @@
 		<aside class="sidebarsinglePostType">
 
 			<!-- Título -->
-			<h2 class="title text-uppercase"> <?= __("líneas de negocio","LANG"); ?> </h2>
+			<h2 class="title text-uppercase"> <?= __( "proyectos" , "LANG" ); ?> </h2>
 
 			<!-- Lista -->
 			<ul class="menu">
@@ -49,7 +49,21 @@
 					foreach(  $all_bussiness_line as $bussiness_line ) :
 				?>
 				<li>
-					<a href="<?= get_permalink( $bussiness_line->ID ); ?>" class="d-block <?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>">
+					<?php  
+						#Obtener link de archive - custom post type -->
+						#pasar por parametro get el slug
+
+						#Vamos a utilizar un hook para pasar la variable slug
+						$link_custom_postype_archive = get_post_type_archive_link('line-bussiness'); 
+						#llave o variable 
+						$var_key   = "line-name";
+						#Parametro a pasar
+						$var_value = $bussiness_line->post_name;
+
+						#Link reconstruido o rebuild link
+						$rebuild_link = add_query_arg( $var_key , $var_value , $link_custom_postype_archive );
+					?>
+					<a href="<?= $rebuild_link; ?>" class="d-block <?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>">
 
 						<!-- Icono -->
 						<?php  
