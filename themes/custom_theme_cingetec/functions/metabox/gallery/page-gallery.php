@@ -5,7 +5,7 @@
 add_action( 'add_meta_boxes', 'attached_images_meta' );
 
 function attached_images_meta() {
-  $screens = array( 'post', 'page' , 'servicio' , 'theme-proyecto' , 'galery-images' ); 
+  $screens = array( 'post', 'page' , 'servicio' , 'theme-proyecto' , 'line-bussiness' ); 
   //add more in here as you see fit
 
   foreach ($screens as $screen) {
@@ -21,11 +21,11 @@ function attached_images_meta() {
 
 function attached_images_meta_box($post){
 	
-	$input_ids_img  = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
+	$input_ids_img = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
 	//convertir en arreglo
-	$input_ids_img  = explode(',', $input_ids_img ); 
+	$input_ids_img = explode(',', $input_ids_img ); 
 	//eliminar valores negativos
-  $input_ids_img  = array_diff( $input_ids_img , array(-1) );
+	$input_ids_img = array_diff( $input_ids_img , array(-1) );
 	#$input_ids_img  = array_unique( $input_ids_img );
   
 	//colocar en una sola cadena para el input
@@ -47,6 +47,11 @@ function attached_images_meta_box($post){
 		if( !empty($item_img) && $item_img !== '-1' ) : 
 		//Conseguir todos los datos de este item
 		$item = get_post( $item_img  ); 
+
+		//Datos attachment por id
+		$attachment_data = wp_get_attachment_image_src( $item->ID , 'full' );
+
+		#var_dump($attachment_data);
 	?>
 		<!-- Nota: colocar data-id-img es referente al id de la imagen -->
 		<figure data-id-post="<?= $post->ID; ?>" data-id-img="<?= $item->ID; ?>" style="width: 202px; height: 120px; margin: 0 10px 20px; display: inline-block; vertical-align: top; position: relative; float:left; ">
@@ -57,7 +62,7 @@ function attached_images_meta_box($post){
 			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $item->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid green; color: green; position: absolute; top: -10px; right: 18px; text-decoration: none; text-align: center; background: white; font-weight: 700; z-index:999;">@</a>
 			
 			<!-- Abrir frame del contenedor de imagen -->
-			<img src="<?= $item->guid; ?>" alt="<?= $item->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
+			<img src="<?= $attachment_data[0]; ?>" alt="<?= $item->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
 
 			<!-- Titulo que muestra el id de imagen que tiene la imagen -->
 			<h2 style="position: absolute;top: 0px;left: 0px;right: 0px;bottom: 0px;color: white;align-items: center; display: flex; justify-content: center; font-size: 50px; text-shadow: 1px 1px 4px black;"> <?= $item->ID; ?> </h2>

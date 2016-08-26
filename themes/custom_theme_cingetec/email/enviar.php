@@ -11,7 +11,7 @@
 
 
 	//Email A quien se le rinde cuentas
-	$webmaster_email1 = "ventas@maderaliaperu.com";
+	$webmaster_email1 = "proyectos@cingetec.com";
 	$webmaster_email2 = "jgomez@ingenioart.com";
 
 	include("class.phpmailer.php");
@@ -34,7 +34,7 @@
 
 	$mail->IsHTML(true); // send as HTML
 
-	$mail->Subject = "Consulta - Mensaje Formulario: Asunto - " . $subject;
+	$mail->Subject = "Mensaje Web Formulario:" . $subject;
 
 	//Adjuntar Logo Imagen
 	$mail->AddEmbeddedImage("images\logo.png", "logo", "logo.png");

@@ -91,63 +91,48 @@
 			<!-- Espacio  --> <br><br>
 
 
-			<!-- CAROUSEL DE PROYECTOS SEGUN LA LINEA DE NEGOCIO -->
+			<!-- CAROUSEL GALERIA -->
 			<?php  
-				/*
-				*  Attributos disponibles 
-				* data-items = number , data-items-responsive = number_mobile ,
-				* data-margins = margin_in_pixels , data-dots = true or false 
-				*data autoplay = true or false
-				*/
+				/* Obtener meta de galería de Imágenes 
+				En caso de tener más de dos IMÁGENES se 
+				convertirá en galería sino solo será una imágen */
+
+				$gallery_ids = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
+				#Convertir en arreglo
+				$gallery_ids  = explode(',', $gallery_ids ); 
+				#Eliminar elementos negativos 
+				$gallery_ids = array_diff( $gallery_ids , array(-1,"-1") );
+				$gallery_ids = array_filter($gallery_ids);
+
+				if( !empty($gallery_ids) && count($gallery_ids) > 1 ) :
 			?>
-			<div id="carousel-bussiness-line" class="section__single_gallery js-carousel-gallery" data-items="3" data-items-responsive="1" data-margins="12" data-dots="false" data-autoplay="true">
+				
+				<div id="carousel-bussiness-line" class="section__single_gallery js-carousel-gallery" data-items="2" data-items-responsive="1" data-margins="12" data-dots="false" data-autoplay="true">
 
-				<?php  
-					#Extraer todos los proyectos 
-					# que tengan el metabox de linea de negocio
+					<?php  
+						#Hacer loop por cada item de arreglo
+						foreach ( $gallery_ids as $item_img ) : 
+						#Conseguir todos los datos de este item
+						$item = get_post( $item_img  ); 
 
-					#Actual linea de negocio 
-					$current_bussines_line = $post->post_name;
+						//Datos attachment por id
+						$attachment_data = wp_get_attachment_image_src( $item->ID , 'full' );
+					?>
 
-					#Argumentos
-					$args = array(
-						"post_type"      => 'theme-proyecto',
-						"posts_per_page" => -1,
-						"order"          => 'ASC',
-						"orderby"        => 'name',
-						'meta_query' => array(
-							array(
-								'key'     =>  'mb_bussiness_line_project_select',
-								'value'   =>  $current_bussines_line,
-								'compare' =>  '=',
-							),
-						),
-					);
+						<!-- Imagen -->
+						<a href="<?= $attachment_data[0]; ?>" class="gallery-fancybox" rel="group1">
+							
+							<figure class="itemProyecto__carousel-preview" style="background-image: url( <?= $attachment_data[0]; ?>) ">
+								<!-- Link a proyecto -->
+							</figure> <!-- /.itemProyecto__carousel-preview --> 
 
-					#obtener todos los proyectos seleccionados
-					$all_proyects = get_posts( $args );
+						</a> <!-- / -->
 
-					#var_dump($all_proyects);
+					<?php endforeach; #fin recorrido ?>
+					
+				</div> <!-- /#carousel-bussiness-line -->
 
-					foreach( $all_proyects as $proyect ):
-				?>
-					<!-- Imagen -->
-					<?php if( has_post_thumbnail($proyect->ID) ) : ?>
-
-						<figure class="itemProyecto__carousel-preview">
-							<!-- Link a proyecto -->
-							<a href="<?= get_permalink( $proyect->ID ); ?>">
-
-								<?= get_the_post_thumbnail( $proyect->ID , 'full' , array("class"=>'img-fluid d-block m-x-auto') ); ?>
-
-							</a> <!-- / -->
-						</figure> <!-- /.itemProyecto__carousel-preview --> 
-
-					<?php endif; ?>
-
-				<?php endforeach; ?>
-
-			</div> <!-- /.#carousel-bussiness-line -->
+			<?php endif; #Fin condicional galeria ?>
 
 			<!-- Limpiar floats -->
 			<div class="clearfix"></div> <br/>
