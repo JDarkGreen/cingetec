@@ -56,7 +56,7 @@ $options = get_option( 'theme_settings' );
 					</article> <!-- /.mainFooter__item -->
 
 					<!-- Item de Síguenos -->
-					<article class="mainFooter__item text-xs-center">
+					<article class="mainFooter__item no-border text-xs-center">
 						
 						<!-- Título de Item --> 
 						<div class="">

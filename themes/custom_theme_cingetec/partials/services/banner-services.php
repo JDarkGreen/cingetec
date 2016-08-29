@@ -1,5 +1,5 @@
 <?php /*Obtener página de Servicios*/ 
-	$page_servicios      = get_page_by_title('servicios'); 
+	$page_servicios      = get_page_by_title('contacto'); 
 	
 	$page_servicios_link = !empty($page_servicios) ? get_permalink( $page_servicios->ID ) : "#";
 ?>
