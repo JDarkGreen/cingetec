@@ -43,7 +43,7 @@ $menu_class = isset($menu_class) && !empty($menu_class) ? $menu_class : "";
 		<i class="fa fa-mobile" aria-hidden="true"></i>
 		<!--  -->
 		<?php  
-			$cellphones = $options['theme_phone_text'];
+			$cellphones = $options['theme_cel_text'];
 			#variable control
 			$control = 0;
 
