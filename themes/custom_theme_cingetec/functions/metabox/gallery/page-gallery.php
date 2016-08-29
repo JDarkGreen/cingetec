@@ -25,9 +25,16 @@ function attached_images_meta_box($post){
 	//convertir en arreglo
 	$input_ids_img = explode(',', $input_ids_img ); 
 	//eliminar valores negativos
+	$input_ids_img = array_filter( $input_ids_img );
 	$input_ids_img = array_diff( $input_ids_img , array(-1) );
-	#$input_ids_img  = array_unique( $input_ids_img );
+
+	$input_ids_img = array_filter( $input_ids_img , function($var) {
+    	//because you didn't define what is the empty value, I leave it to you
+    	return trim($var);
+	});
   
+	#var_dump($input_ids_img  );
+
 	//colocar en una sola cadena para el input
 	$string_ids_img = "";
 	$string_ids_img = implode(',', $input_ids_img);
@@ -40,11 +47,10 @@ function attached_images_meta_box($post){
 <?php
 
 	//Hacer loop por cada item de arreglo
-	//var_dump($input_ids_img  );
 
 	foreach ( $input_ids_img as $item_img ) :  
 		//Si es diferente de null o tiene elementos
-		if( !empty($item_img) && $item_img !== '-1' ) : 
+		if( !empty($item_img)  ) : 
 		//Conseguir todos los datos de este item
 		$item = get_post( $item_img  ); 
 

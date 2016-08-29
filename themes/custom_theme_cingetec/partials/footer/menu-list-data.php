@@ -25,9 +25,9 @@ $menu_class = isset($menu_class) && !empty($menu_class) ? $menu_class : "";
 			foreach( $phones as $phone ) : 
 
 				#Variable de separacion 
-				$split = $control === count($phones) - 1 ? "" : " - ";
+				$split = $control == 0 || $phone === "" || $control === count($phones) - 1 ? "" : " - ";
 
-				echo $phone . $split;
+				echo $split . $phone;
 
 			$control++; endforeach;
 		?>
@@ -50,9 +50,9 @@ $menu_class = isset($menu_class) && !empty($menu_class) ? $menu_class : "";
 			foreach( $cellphones as $cellphone ) : 
 
 				#Variable de separacion 
-				$split = $control === count($cellphones) - 1 ? "" : " - ";
+				$split = $control == 0 || $cellphone === "" || $control === count($cellphones) - 1 ? "" : " - ";
 
-				echo $cellphone . $split;
+				echo $split . $cellphone;
 
 			$control++; endforeach;
 		?>

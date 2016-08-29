@@ -271,10 +271,12 @@ body.admin-bar
 			+transition( all 900ms ease-in-out )
 		//ícono
 		i 
-			bottom  : -1px
-			left    : 0
-			position: absolute
-			width   : 50px
+			+transition( all 900ms ease-in-out )
+			background: #464646
+			bottom    : -1px
+			left      : 0
+			position  : absolute
+			width     : 50px
 		//Title
 		h3 
 			font-size  : 17px 
@@ -285,6 +287,9 @@ body.admin-bar
 		&:hover 
 			img.imageItem
 				+scale( 1.2 )
+			//Icono
+			i 
+				background: #006FB8
 
 /** [ PRESENTACIÓN INICIO ] **/
 .pageInicio__presentation
@@ -490,14 +495,19 @@ body.admin-bar
 			a
 				&:after 
 					+box-shadow( inset 0px 0 0px 190px rgba( 0 , 112 , 186 , .7 ) )
+			//Ícono
+			i.icon-line-bussiness 	
+				background-color: #006FB8
 
 	//Ícono
 	i.icon-line-bussiness 	
-		bottom  : 0px
-		height  : 50px
-		position: absolute
-		width   : 50px
-		z-index : 999
+		+transition( all 500ms ease-in )
+		background-color: #464646
+		bottom          : 0px
+		height          : 50px
+		position        : absolute
+		width           : 50px
+		z-index         : 999
 
 	//Título 
 	h3 
@@ -561,12 +571,13 @@ aside.sidebarsinglePostType
 					color: #0070B6
 			//ícono 
 			i 
-				background-size: cover 
-				display        : inline-block
-				height         : 26px
-				margin         : 0 15px 0 0 
-				vertical-align : middle
-				width          : 26px 
+				background-color: #464646
+				background-size : cover 
+				display         : inline-block
+				height          : 26px
+				margin          : 0 15px 0 0 
+				vertical-align  : middle
+				width           : 26px 
 			//span 
 			span 
 				display: inline-block
