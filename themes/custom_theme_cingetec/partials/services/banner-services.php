@@ -12,7 +12,7 @@
 		<div class="containerFlex containerAlignContent" style="justify-content:center">
 
 			<!-- Titulo -->
-			<h2 class="text-uppercase"><?php _e('Consulte acerca de nuestros servicios' , LANG ); ?></h2>
+			<h2 class="text-uppercase text-xs-center"><?php _e('Consulte acerca de nuestros servicios' , LANG ); ?></h2>
 
 			<!-- Botón -->
 			<a href="<?= $page_servicios_link; ?>" class="btntoServices text-uppercase"><?php _e('click aquí' , LANG ); ?></a>

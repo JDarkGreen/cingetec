@@ -50,6 +50,8 @@ $class_variable = isset($class_presentation) && !empty($class_presentation) ? $c
 						<figure class="hidden-xs-down"><img src="<?= IMAGES; ?>/icon/icon-file.png" alt="pdf-catalogo-constructora" class="img-fluid imgNotBlur"></figure>
 
 						<!-- Enlace --> <a target="_blank" href="<?= isset($options['theme_meta_brochure']) ? $options['theme_meta_brochure'] : '#' ?>" class="btnDownloadPdf text-uppercase"> <?= __("descargar brochure","LANG"); ?> </a>
+
+						<!-- Espacio mobile --> <p class="hidden-sm-up"></p>
 					</div>
 
 					<!-- Imágen ver más -->
@@ -62,6 +64,9 @@ $class_variable = isset($class_presentation) && !empty($class_presentation) ? $c
 					</a>
 
 					<!-- Limpiar floats --> <div class="clearfix"></div>
+
+					<!-- Espacio mobile --> 
+					<p class="hidden-sm-up" style="width:100%;"></p>
 
 				</section>
 

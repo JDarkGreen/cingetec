@@ -91,8 +91,9 @@ $options = get_option( 'theme_settings' );
 
 	<script> var url = "<?= THEMEROOT ?>"; </script>
 
-	<!-- Fin mmenu container -->
+	<!-- Fin slidebar js container -->
 	</div> <!-- /. -->
 
 </body>
 </html>
+

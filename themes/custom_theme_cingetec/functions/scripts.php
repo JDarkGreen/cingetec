@@ -46,14 +46,14 @@ function load_custom_scripts()
 	wp_enqueue_script('isotope', THEMEROOT . '/assets/js/vendor/isotope.pkgd.min.js', array('jquery'), '3.0.0', true);	
   	
   	//cargar sbslidebar js 
-	/*wp_enqueue_script('slidebars', THEMEROOT . '/assets/js/vendor/slidebars.min.js', array('jquery'), '0.10.3', true);*/	 
+	wp_enqueue_script('slidebars', THEMEROOT . '/assets/js/vendor/slidebars.min.js', array('jquery'), '2.0.2', true); 
 
   	//cargar mmenu js 
-	wp_enqueue_script('mmenujs', THEMEROOT . '/assets/js/vendor/mmenu/jquery.mmenu.all.min.js', array('jquery'), '5.6.5', true);
+	/*wp_enqueue_script('mmenujs', THEMEROOT . '/assets/js/vendor/mmenu/jquery.mmenu.all.min.js', array('jquery'), '5.6.5', true);
 	//extensión mmenu searchfield		
 	wp_enqueue_script('seachfield-mmenujs', THEMEROOT . '/assets/js/vendor/mmenu/jquery.mmenu.searchfield.min.js', array('jquery'), '5.6.5', true);	 
 	//extensión mmenu fixed elementos		
-	wp_enqueue_script('fixedelements-mmenujs', THEMEROOT . '/assets/js/vendor/mmenu/jquery.mmenu.fixedelements.min.js', array('jquery'), '5.6.5', true);	 	 
+	wp_enqueue_script('fixedelements-mmenujs', THEMEROOT . '/assets/js/vendor/mmenu/jquery.mmenu.fixedelements.min.js', array('jquery'), '5.6.5', true); */ 	 
 
 	//custom script
 	wp_enqueue_script('custom_script', THEMEROOT . '/assets/js/source/script-compiled.js', array('jquery'), '1.0' , true );

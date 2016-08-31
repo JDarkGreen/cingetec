@@ -44,7 +44,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*@import url("assets/styles/vendor/flexslider/flexslider.css");*/ 
 
 /* slidebars */
-/*@import url("assets/styles/vendor/slidebars.min.css");*/
+@import url("assets/styles/vendor/slidebars/slidebars.min.css");
 
 /* mmenu */
 /*@import url("assets/styles/vendor/mmenu/jquery.mmenu.all.css");

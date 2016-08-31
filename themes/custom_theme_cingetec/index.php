@@ -113,7 +113,7 @@ include( locate_template("partials/slider-home/slider-home-revolution.php") );
 				?>
 				</div> <!-- /. -->
 
-				<!-- Espacio --> <br />
+				<!-- Espacio --> <p></p>
 
 				<!-- Boton a ver más sección -->
 				<a href="#" class="btnCommonMoretoPage text-uppercase">
@@ -121,6 +121,8 @@ include( locate_template("partials/slider-home/slider-home-revolution.php") );
 					<!-- ícono -->
 					<i class="fa fa-caret-right" aria-hidden="true"></i>
 				</a> <!-- /.btnCommonMoretoPage -->
+
+				<!-- Espacio mobile --> <p class="hidden-sm-up"></p>
 				
 				
 			</div> <!-- /.col-xs-12 col-sm-3 -->

@@ -1,5 +1,3 @@
-'use strict';
-
 var j = jQuery.noConflict();
 
 (function($){
@@ -22,25 +20,33 @@ var j = jQuery.noConflict();
 		/*|-----  SLIDEBAR VERSION MOBILE  -----|*/
 		/*|----------------------------------------------------------------------|*/
 
-		/*var mySlidebars = new j.slidebars({
-			disableOver       : 568, // integer or false
-			hideControlClasses: true, // true or false
-			scrollLock        : false, // true or false
-			siteClose         : true, // true or false
-		});
+		// Initialize Slidebars
+		var controller = new slidebars();
+		controller.init();
 
 		//Eventos
 
 		//Abrir contenedor izquierda
-		j("#toggle-left-nav").on('click',function(){
-			mySlidebars.slidebars.toggle('left');
+		j("#toggle-left-nav").on( 'click', function ( event ) {
+		  // Stop default action and bubbling
+		  event.stopPropagation();
+		  event.preventDefault();
+
+		  // Toggle the Slidebar with id 'id-1'
+		  controller.toggle('id-1');
 		});
 
+		
 		//Abrir contenedor derecha
-		j("#toggle-right-nav").on('click',function(){
-			mySlidebars.slidebars.toggle('right');
+		j("#toggle-right-nav").on( 'click', function ( event ) {
+		  // Stop default action and bubbling
+		  event.stopPropagation();
+		  event.preventDefault();
+
+		  // Toggle the Slidebar with id 'id-2'
+		  controller.toggle('id-2');
 		});
-		*/
+		
 
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL HOME LIBRERIA  -----|*/

@@ -90,5 +90,47 @@
 
 </header> <!-- /.mainHeader  -->
 
+<!-- Contenedor Versión Mobile -->
+<header class="mainHeader hidden-sm-up <?= $admin_bar; ?>" canvas="">
+	<!-- Icono abrir menu lateral -->
+	<div class="icon-header">
+		<i id="toggle-left-nav" class="fa fa-bars" aria-hidden="true"></i>
+	</div><!-- /.icon-header -->
+
+	<!-- Logo -->
+	<h1 class="logo">
+		<a href="<?= site_url() ?>">
+			<img src="<?= IMAGES ?>/logo_min.jpg" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid center-block" />
+		</a>
+	</h1> <!-- /.lgoo -->	
+
+	<!-- Icono abrir menu lateral derecha -->
+	<div class="icon-header">
+		<i id="toggle-right-nav" class="fa fa-bars" aria-hidden="true"></i>
+	</div><!-- /.icon-header -->	
+
+</header> <!-- /.mainHeader hidden-sm-up-->
+
+<!-- Contenedor SIDEBAR DE MENU -->
+<div off-canvas="id-1 left push">
+
+	asdasdasd
+
+</div> <!-- /.id-1 left reveal -->
+
+<!-- Contenedor SIDEBAR DE MENU -->
+<div off-canvas="id-2 right push">
+
+	asdasdasd
+
+</div> <!-- /.id-1 left reveal -->
+
+
+
+<!-- Contenedor Slidebar Js -->
+<div canvas="container">
+
+
+
 
 
