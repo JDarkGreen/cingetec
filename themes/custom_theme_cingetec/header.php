@@ -114,7 +114,15 @@
 <!-- Contenedor SIDEBAR DE MENU -->
 <div off-canvas="id-1 left push">
 
-	asdasdasd
+	<!-- Menú de Navegación -->
+	<nav class="mainNavigation">
+		<?php wp_nav_menu(
+			array(
+				'menu_class'     => 'main-menu',
+				'theme_location' => 'main-menu'
+			));
+		?>
+	</nav> <!-- /.mainNavigation -->
 
 </div> <!-- /.id-1 left reveal -->
 
