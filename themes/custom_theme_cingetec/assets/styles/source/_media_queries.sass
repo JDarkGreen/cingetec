@@ -12,6 +12,9 @@
 	.pageWrapperLayout
 		padding: 0 15px
 
+	.pageContentLayout
+		padding: 30px 0 0 0
+
 	//********************************
 	//* HEADER
 	//********************************
@@ -34,6 +37,21 @@
 			width    : 65%
 
 	//********************************
+	//* NAVIGATION
+	//********************************
+	.mainNavigation 
+		background: white
+		margin    : 30px 10px
+		padding   : 15px
+		ul
+			display: block 
+			li 
+				display: block
+				margin : 20px 10px
+
+
+
+	//********************************
 	//* SECCIONES COMUNES
 	//********************************
 
@@ -42,6 +60,18 @@
 		h2
 			font-size: 25px 
 			margin   : 0 auto 10px 
+	
+	//SIDEBAR CONTENEDOR SINGLE 
+	aside.sidebarsinglePostType
+		bottom  : 0
+		left    : initial
+		margin  : 20px 10px
+		padding : 20px 10px
+		position: relative
+		width   : auto
+		//title
+		h2.title 
+			color : black 
 
 	//********************************
 	//* CAROUSELES
@@ -59,12 +89,42 @@
 		.text-presentation
 			padding: 0
 
+	//********************************
+	//* PAGINA LINEA DE NEGOCIO
+	//********************************
+	.itemLineaNegocio__preview
+		margin: 0 auto 15px
+		width : 100%
+
+	//Single
+	.singleArticlePostType__content
+		margin : 0
+		padding: 25px 0
+
+	//********************************
+	//* PAGINA PROYECTOS
+	//********************************
+	
+	//Navigation
+	.pageProyectos__navigation 
+		.navigation-content 
+			a
+				border-bottom: 1px solid gray 
+				border-right : none 
+				display      : block 
+				padding      : 10px
+				width        : 100% 
+
+	//Contenedor 
+	.pageProyectos__content 
+		article.itemProyecto__preview
+			width: 100%
 
 	//********************************
 	//* BLOG
 	//********************************
 
-	//Preview de articulo
+	//Preview de articulo pagina inicio
 	.itemArticle__preview 
 		figure 
 			margin: 0 auto 10px
@@ -75,9 +135,24 @@
 
 		.content-text
 			width: 100%
+	
+	//Página blog preview
+	.articleBlog__preview 
+		figure
+			margin   : 0 auto 15px 
+			max-width: initial
+		.container-text
+			width: 100%
 
-
-
+	//********************************
+	//* PAGINA CLIENTES
+	//********************************
+	.containerRow__client
+		padding: 15px 
+		//Imagen
+		figure 
+			display: block
+			width  : 100%
 
 	//********************************
 	//* FOOTER

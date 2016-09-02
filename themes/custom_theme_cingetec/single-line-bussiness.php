@@ -26,7 +26,7 @@
 	<div class="pageWrapperLayout containerRelative">
 
 		<!-- ASIDE LISTA DE LINEAS DE NEGOCIOS -->
-		<aside class="sidebarsinglePostType">
+		<aside class="sidebarsinglePostType hidden-xs-down">
 
 			<!-- Título -->
 			<h2 class="title text-uppercase"> <?= __("líneas de negocio","LANG"); ?> </h2>
@@ -69,6 +69,16 @@
 			
 		</aside> <!-- /.sidebarsinglePostType -->
 
+		
+		<!-- NAVEGACION MOBILE DE MENU DE LINEA DE NEGOCIO -->
+		<div class="hidden-sm-up">
+			<br/>
+			<button id="toggle-bussines-line" type="button" class="btn btn-info">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+				<?= __("Lineas de Negocios" , LANG ); ?>
+			</button>
+		</div>
+	
 
 		<!-- CONTENEDOR DE CONTENIDO -->
 		<div class="singleArticlePostType__content">

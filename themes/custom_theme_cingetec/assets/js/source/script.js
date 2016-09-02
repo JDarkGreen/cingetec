@@ -46,6 +46,16 @@ var j = jQuery.noConflict();
 		  // Toggle the Slidebar with id 'id-2'
 		  controller.toggle('id-2');
 		});
+
+		//Abrir contenedor linea de negocio
+		j("#toggle-bussines-line").on( 'click', function ( event ) {
+		  // Stop default action and bubbling
+		  event.stopPropagation();
+		  event.preventDefault();
+
+		  // Toggle the Slidebar with id 'id-3'
+		  controller.toggle('id-3');
+		});
 		
 
 		/*|----------------------------------------------------------------------|*/

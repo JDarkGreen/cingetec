@@ -129,9 +129,85 @@
 <!-- Contenedor SIDEBAR DE MENU -->
 <div off-canvas="id-2 right push">
 
-	asdasdasd
+	<!-- Layout de Página -->
+	<div class="pageContentLayout">
+
+		<!-- Wrapper de Contenido -->
+		<div class="pageWrapperLayout">
+
+			<!-- Incluir Template de Categorías -->
+			<?php 
+				/* Extraer todas las categorías padre */  
+				$categorias = get_categories( array(
+					'orderby' => 'name' , 'parent' => 0, 'hide_empty' => false,
+				) );
+				#Incluir plantilla tema
+				include( locate_template("partials/common/sidebar-categories.php") ); 
+			?>
+
+			<!-- Espacio --> <br><br>
+
+			<!-- Incluir facebook -->
+			<?php 
+				#Parametro incluir variable facebook link
+				$facebook_link = isset($options['theme_social_fb_text']) && !empty($options['theme_social_fb_text']) ? $options['theme_social_fb_text'] : "";
+
+				include( locate_template("partials/common/section-facebook.php") );  
+			?>
+
+		</div> <!-- /.pageWrapperLayout -->
+
+	</div> <!-- /.pageContentLayout -->
 
 </div> <!-- /.id-1 left reveal -->
+
+<!-- Contenedor LISTA DE LINEAS DE NEGOCIOS -->
+<div off-canvas="id-3 left push">
+
+	<aside class="sidebarsinglePostType">
+
+		<!-- Título -->
+		<h2 class="title text-uppercase"> <?= __("líneas de negocio","LANG"); ?> </h2>
+
+		<!-- Lista -->
+		<ul class="menu">
+
+			<?php  
+				#Obtener todas las lineas de negocio
+				$args = array(
+					"order"          => 'ASC',
+					"orderby"        => 'name',
+					"post_status"    => 'publish',
+					"posts_per_page" => -1,
+					'post_type'      => 'line-bussiness',
+				);
+
+				$all_bussiness_line = get_posts( $args );
+
+				foreach(  $all_bussiness_line as $bussiness_line ) :
+			?>
+			<li>
+				<a href="<?= get_permalink( $bussiness_line->ID ); ?>" class="d-block <?= $post->ID === $bussiness_line->ID ? 'active' : '' ?>">
+
+					<!-- Icono -->
+					<?php  
+						$icon_bussiness = get_post_meta( $bussiness_line->ID , 'mb_image_icon_text' , true );
+					?>
+					<i style="background-image: url('<?= $icon_bussiness ?>');"></i>
+
+					<!-- Texto --> <span> <?= $bussiness_line->post_title; ?> </span>
+			
+				</a> <!-- /link -->
+
+			</li>
+
+			<?php endforeach; ?>
+			
+		</ul> <!-- /.menu -->
+		
+	</aside> <!-- /.sidebarsinglePostType -->
+
+</div> <!-- /.id-3 left push -->
 
 
 

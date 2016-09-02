@@ -24,7 +24,7 @@
 		
 		<div class="row">
 			
-			<div class="col-xs-6">
+			<div class="col-xs-12 col-sm-6">
 	
 				<!-- SECCIÓN DE DATOS  -->
 				<section class="pageContact__data">
@@ -88,9 +88,9 @@
 
 				<?php endif; ?>
 				
-			</div> <!-- /.col-xs-6 -->
+			</div> <!-- /.col-xs-12 col-sm- -->
 
-			<div class="col-xs-6">
+			<div class="col-xs-12 col-sm-6">
 
 				<!-- SECCIÓN DE REDES SOCIALES  -->
 				<section class="pageContact__formulary">
@@ -167,7 +167,7 @@
 
 				</section> <!-- /. -->				
 
-			</div> <!-- /.col-xs-6 -->
+			</div> <!-- /.col-xs-12 col-sm-6 -->
 
 		</div> <!-- /.row -->
 	

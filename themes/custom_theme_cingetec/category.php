@@ -36,7 +36,7 @@
 		<div class="row">
 			
 			<!-- Previews de Noticias o blog -->
-			<div class="col-md-8">
+			<div class="col-xs-12 col-md-8">
 		
 				<!-- Titulo -->
 				<h2 class="text-uppercase titleCommon__section">
@@ -135,7 +135,7 @@
 
 			</div> <!-- /.col-md-8 -->
 	
-			<div class="col-md-4">
+			<div class="col-md-4 hidden-xs-down">
 
 				<!-- Incluir Template de Categorías -->
 				<?php 
