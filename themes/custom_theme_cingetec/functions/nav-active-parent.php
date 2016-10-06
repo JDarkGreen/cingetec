@@ -55,5 +55,3 @@ pertenece la pagina actual a un custom post type */
 		return $classes;
 	
 	}
-
-?>

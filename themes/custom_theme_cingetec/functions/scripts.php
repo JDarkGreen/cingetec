@@ -62,6 +62,3 @@ function load_custom_scripts()
 
 add_action('wp_enqueue_scripts', 'load_custom_scripts');
 
-
-
-?>

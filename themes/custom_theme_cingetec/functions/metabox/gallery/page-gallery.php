@@ -28,11 +28,6 @@ function attached_images_meta_box($post){
 	$input_ids_img = array_filter( $input_ids_img );
 	$input_ids_img = array_diff( $input_ids_img , array(-1) );
 
-	$input_ids_img = array_filter( $input_ids_img , function($var) {
-    	//because you didn't define what is the empty value, I leave it to you
-    	return trim($var);
-	});
-  
 	#var_dump($input_ids_img  );
 
 	//colocar en una sola cadena para el input

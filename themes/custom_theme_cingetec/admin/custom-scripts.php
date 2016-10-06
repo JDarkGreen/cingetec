@@ -4,9 +4,10 @@
 **/
 
 /* Add the media uploader script */
-function load_admin_custom_enqueue() {
+function load_admin_custom_enqueue() 
+{
 	//upload media
-	wp_enqueue_media();
+	//wp_enqueue_media();
 
 	//upload gallery banner  
 	wp_enqueue_script('upload-banner-page', THEMEROOT . '/admin/js/media-lib-banner.js', array('jquery'), '', true);  
@@ -19,7 +20,7 @@ function load_admin_custom_enqueue() {
 
 	//cargar color a esta taxonomía
 	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_script('upload-color', THEMEROOT . '/admin/js/color-for-taxonomy.js', array('jquery' , 'wp-color-picker' ), '', true);
+	wp_enqueue_script('upload-color', THEMEROOT . '/admin/js/color-for-taxonomy.js', array('wp-color-picker','jquery'), '', true);
 
 	//cargar velocity
 	wp_enqueue_script('wp-js-velocity', THEMEROOT . '/admin/js/velocity.min.js', array('jquery' ), '', true);
@@ -41,5 +42,3 @@ function load_admin_custom_enqueue() {
 }
 
 add_action('admin_enqueue_scripts', 'load_admin_custom_enqueue');
-
-?>

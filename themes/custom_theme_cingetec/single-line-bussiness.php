@@ -1,4 +1,4 @@
-<?php /* Template Name: Página Líneas Negocio Template */ ?>
+<?php /* Single Name: Página Líneas Negocio Template */ ?>
 <!-- Header -->
 <?php 
 	get_header(); 

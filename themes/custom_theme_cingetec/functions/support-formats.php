@@ -28,5 +28,3 @@
 
 	//Agregar Excerpt a las páginas
 	add_post_type_support('page', 'excerpt');
-
-?>

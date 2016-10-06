@@ -37,5 +37,3 @@ function create_category_taxonomy() {
 
 }
 
-
-?>

@@ -76,8 +76,3 @@ include("metabox/projects/mb_address_proyect.php");
 /**- Incluir metabox de Lineas de Negocio y Proyecto --**/
 /***************************************************************************************/
 include("metabox/projects/mb_bussiness_line_proyect.php");
-
-
-
-
-?>

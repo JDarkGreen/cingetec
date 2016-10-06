@@ -15,24 +15,24 @@ define('LANG', 'this-theme-framework');
 * Setear scripts archvos css y javascript de la administracion del tema
 **/
 //css
-require_once("admin/custom-styles.php");
+include("admin/custom-styles.php");
 //javascript
-require_once("admin/custom-scripts.php");
+include("admin/custom-scripts.php");
 
 /**
 * Opciones del tema
 **/
-require_once('functions/admin/options/theme-customizer.php');
+include('functions/admin/options/theme-customizer.php');
 
 /**
 * Customizar Urls
 **/
-require_once('functions/admin/rewrite/rewrite_slug.php');
+include('functions/admin/rewrite/rewrite_slug.php');
 
 /**
 * Agregar nuevas columnas 
 **/
-require_once('functions/admin/custom/new-columns.php');
+include('functions/admin/custom/new-columns.php');
 
 
 /***********************************************************************************************/
@@ -43,58 +43,58 @@ require_once('functions/admin/custom/new-columns.php');
 /* Cargar archivos JS */
 /***********************************************************************************************/
 
-include_once("functions/scripts.php");
+include("functions/scripts.php");
 
 /******************************************************************************************/
 /* Marcar la navegacion del padre activo cuanto se encuentra en un single post type */
 /******************************************************************************************/
 
-include_once("functions/nav-active-parent.php");
+include("functions/nav-active-parent.php");
 
 /***********************************************************************************************/
 /* Registrar Menus */
 /***********************************************************************************************/
-include_once("functions/menu-register.php");
+include("functions/menu-register.php");
 
 /***********************************************************************************************/
 /* Agregando nuevos SIDEBARS y secciones para widgets */
 /***********************************************************************************************/	
-include_once("functions/add-sidebars.php");
+include("functions/add-sidebars.php");
 
 /***********************************************************************************************/
 /* Registrar widgets  */
 /***********************************************************************************************/
 #WIDGET DE IMAGEN TEXTO Y LINK
-include_once("functions/widgets/widget-ad-image.php");
+include("functions/widgets/widget-ad-image.php");
 
 /***********************************************************************************************/
 /* Agregando nuevos tipos de post  */
 /***********************************************************************************************/
-require_once("functions/add-type-posts.php");
+include("functions/add-type-posts.php");
 
 /***********************************************************************************************/
 /* Agregar formatos al tema  */
 /***********************************************************************************************/
-include_once("functions/support-formats.php");
+include("functions/support-formats.php");
 
 /***********************************************************************************************/
 /* Opciones o filtros antes de salvar los posts o tipos de posts */
 /***********************************************************************************************/
 
-//include_once("functions/options-before-save-posts.php");
+//include("functions/options-before-save-posts.php");
 
 /***********************************************************************************************/
 /* Registrar nuevos metabox  */
 /***********************************************************************************************/
-include_once("functions/add-new-metabox.php");
+include("functions/add-new-metabox.php");
 
 /***********************************************************************************************/
 /* Registrar nuevas taxonomías  */
 /***********************************************************************************************/
-include_once("functions/add-new-taxonomy.php");/***********************************************************************************************/
+include("functions/add-new-taxonomy.php");/***********************************************************************************************/
 /* Campos personalizados para las  taxonomías  */
 /***********************************************************************************************/
-include_once("functions/taxonomy/custom-fields-taxonomy.php");
+include("functions/taxonomy/custom-fields-taxonomy.php");
 
 
 /***********************************************************************************************/
